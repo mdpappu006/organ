@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Contact</title>
+    <title>Request for Organ or blood donationb </title>
     <!-- Standard Favicon -->
     <link rel="icon" href="img/fav/favicon-96x96.png">
 
@@ -34,107 +34,68 @@
 <body>
 
     <!-- main nav start -->
-    <nav class="navbar navbar-expand-lg center-brand static-nav">
-        <div class="container">
-            <a class="navbar-brand order-2" href="#">
-               <h1>Organ<span>Donationbd</span></h1>
-
-            </a>
-
-            <div class="d-flex flex-row order-2 order-lg-3">
-                <ul class="navbar-nav login-item flex-row">
-                    <li class="nav-item">
-                        <a class="nav-link " href="login.html">Login</a>
-                    </li>
-                    <li>or</li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="signup.html">sign Up</a>
-                    </li>
-
-                </ul>
-            </div>
-            <button class="navbar-toggler navbar-toggler-right collapsed order-1" type="button" data-toggle="collapse" data-target="#xenav">
-                <i class="fas fa-bars fa-2x"></i>
-            </button>
-            <div class="collapse navbar-collapse order-3 order-lg-2" id="xenav">
-                <ul class="navbar-nav ml-auto pr-5">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="doner.html">Become a Doner</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact Us</a>
-                    </li>
-
-                </ul>
-
-            </div>
-        </div>
-        <!--/.CONTAINER-->
-    </nav>
+    <?php include_once('header/header.php') ;?>
     <!-- /.navbar -->
-
-    <main class="main-wrap">
-
-        <!--banner-->
-        <section class="page-title-area text-center">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-6 align-self-center">
-                        <div class="bn-content-in">
-                            <h1>HAVE SOME QUESTIONS?</h1> 
-                            
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod  et dolore magna vero eos et accusam et justo duo dolores et ea rebum.</p>
-                        </div><!--/.bn-content-in-->
-                    </div>
-                </div>
-            </div><!--/.container-->
-        </section>
-        <!--banner-->
-
-        <!--about-us-->
-        <section class="contact-sec">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 align-self-center">
-                        <div class="thumb">
-                            <img src="img/contact.png" alt="img"/>
-                        </div>
-                    </div>
-                    <div class="col-md-6 align-self-center">
-                        <div class="contact-form">
-                            <div class="bn-content-in">
-                                <form>
-                                    <input placeholder="First Name">
-                                    <input placeholder="Last Name">
-                                    <input placeholder="Phone Number">
-                                    <textarea rows="5" placeholder="Your Message"></textarea>
-                                    <button type="submit" class="btn">Send Message</button>
-                                </form>
+<main class="main-wrap">
+    <!--forms-->
+    <div class="form-wrapper">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-12">
+                    <div class="form-inside-all">
+                        <form>
+                            <div class="titles">
+                                <h4>Post Request For</h4>
                             </div>
-                        </div>
-                    </div>
+                            <div class="rd-btns">
+                                <label>Organ
+                                    <input type="radio" checked name="radio" value="organ">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label>Blood
+                                    <input type="radio" name="radio" value="blood">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="Patient name"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="Address"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="Contact No"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="Required organ"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="Upload Prescription"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" placeholder="Email"/>
+                                </div>
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn">Send</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div><!--/.form-inside-all-->
                 </div>
-            </div><!--/.container-->
-        </section>
-        <!--about-us-->
-    </main>
+            </div>
+        </div><!--/.container-->
+    </div>
+    <!--forms-->
+</main>
 
     <!--footers-->
     <footer class="footers">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-5 col-xl-4">
+                <div class="col-md-4">
                     <div class="footer-widgets">
-                        <a class="navbar-brand order-2" href="index.html">
-               <h1>Organ<span>Donationbd</span></h1>
-
-            </a>
+                        <img src="img/logo.png" alt=""/>
                         <ul>
                             <li>
                                 <img src="img/icon/home.png" alt=""/>
