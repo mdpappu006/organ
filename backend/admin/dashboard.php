@@ -1,3 +1,12 @@
+<?php
+	session_start(); 
+    $id = $_SESSION['userid'] ?? 0;
+    if(!$id){
+        header("location: ../../login.php");
+        die();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,5 +16,6 @@
 </head>
 <body>
 	<h2>Welcome</h2>
+	<a href="logout.php">Logout</a>
 </body>
 </html>
