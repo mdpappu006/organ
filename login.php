@@ -1,3 +1,6 @@
+<?php
+    require_once "backend/user-login.php";
+?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -40,20 +43,20 @@
             <div class="row ">
                 <div class="col-md-8 mx-auto">
                     <div class="form-inside-all">
-                        <form>
+                        <form method="POST">
                             <div class="titles">
                                 <h4>Login </h4>
                             </div>
                 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <input type="text" placeholder="User Name or Gmail"/>
-                                    <input type="password" placeholder="Password"/>
+                                    <input type="text" placeholder="Email" name="email"/>
+                                    <input type="password" placeholder="Password" name="password"/>
                                 </div>
                 
                             
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn">Login</button>
+                                    <button type="submit" class="btn" name="userLogin">Login</button>
                                 </div>
                             </div>
                         </form>
