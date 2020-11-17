@@ -36,6 +36,10 @@
                         <li>
                             <a href="#">Donate</a>
                         </li>
+
+                         <li>
+                            <a href="./admin/">Admin Login</a>
+                        </li>
                     </ul>
                     </div><!--/.footer-widgets-->
                 </div>
