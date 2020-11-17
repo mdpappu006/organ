@@ -1,6 +1,5 @@
 <?php	
 	session_start();
-	require_once("db.php");
 		if(isset($_POST['userLogin'])){
 		$email = trim($_POST['email']);
 		$userpass = $_POST['password'];
@@ -21,10 +20,8 @@
 						}else{
 							echo "wrong Password";
 						}
-
 					}
 				}
-			
 		}
 	}
 ?>
