@@ -1,5 +1,5 @@
 <?php
-    require_once "../backend/user-login.php";
+    require_once "backend/admin-login.php";
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -41,7 +41,7 @@
                     <div class="form-inside-all">
                         <form method="POST">
                             <div class="titles">
-                                <h4>Admin Login </h4>
+                                <h4>Admin Login</h4>
                             </div>
                 
                             <div class="row">
@@ -52,7 +52,7 @@
                 
                             
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn" name="userLogin">Login</button>
+                                    <button type="submit" class="btn" name="adminLogin">Login</button>
                                 </div>
                             </div>
                         </form>

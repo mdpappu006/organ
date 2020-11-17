@@ -2,7 +2,7 @@
 	session_start(); 
     $id = $_SESSION['userid'] ?? 0;
     if(!$id){
-        header("location: ../../login.php");
+        header("location: index.php");
         die();
     }
 ?>
