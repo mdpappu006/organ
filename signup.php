@@ -1,4 +1,3 @@
-
 <!-- main nav start -->
 <?php 
     require_once "backend/user-signup.php";
@@ -14,7 +13,7 @@
                     <div class="form-inside-all">
                         <form method="POST">
                             <div class="titles">
-                                <h4>Inter your details for Signup</h4>
+                                <h4>Enter your details for Signup</h4>
                             </div>
                   
                             <div class="row">

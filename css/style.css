@@ -1275,3 +1275,75 @@ h1 {
 .error{
   color: red;
 }
+
+/*
+============
+user_login
+============
+*/
+
+.header_wrap {
+    float: right;
+}
+
+.user_login {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    float: left;
+    margin: 18px 10px 17px 0;
+}
+
+.user_login ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+.user_login ul li {
+    line-height: 17px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 4px 15px 7px;
+}
+
+.user_login > ul > li a {
+  color: #000000;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 25px;
+  font-family: 'Poppins', sans-serif;
+  padding-top: 0;
+  padding-bottom: 0;
+  text-transform: uppercase;
+}
+
+.user_login > ul > li a i {
+    margin: 0 5px 0;
+}
+
+.user_login ul.dropdown-menu {
+    background: #fffefe none repeat scroll 0 0;
+    border-radius: 0;
+    padding: 15px 0;
+    top: 108%;
+}
+
+.user_login ul li {
+    line-height: 17px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 4px 15px 7px;
+}
+
+.dropdown-menu>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+
+.user_login .dropdown-menu > li > a:hover {
+    background: #eceef5;
+}

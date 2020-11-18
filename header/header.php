@@ -35,9 +35,8 @@
     <!-- main nav start -->
     <nav class="navbar navbar-expand-lg center-brand static-nav">
         <div class="container">
-            <a class="navbar-brand order-2" href="#">
+            <a class="navbar-brand order-2" href="index.php">
                <h1>Organ<span>Donationbd</span></h1>
-
             </a>
 
             <div class="d-flex flex-row order-2 order-lg-3">
@@ -51,7 +50,28 @@
                     </li>
 
                 </ul>
+
+
+        <div class="header_wrap">
+            <div class="user_login">
+              <ul>
+                <li class="dropdown open"> 
+                    <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user-circle" aria-hidden="true"></i> 
+                    php<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="profile.php">Profile Settings</a></li>
+                        <li><a href="update-password.php">Update Password</a></li>
+                        <li><a href="my-booking.php">My Booking</a></li>
+                        <li><a href="logout.php">Sign Out</a></li>
+                    </ul>
+                </li>
+              </ul>
             </div>
+        </div>
+            </div>
+
+
+
             <button class="navbar-toggler navbar-toggler-right collapsed order-1" type="button" data-toggle="collapse" data-target="#xenav">
                 <i class="fas fa-bars fa-2x"></i>
             </button>
