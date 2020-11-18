@@ -18,7 +18,7 @@
 							$_SESSION['user'] = true;
 							$_SESSION['username'] = $data['firstname'];
 						}else{
-							echo "wrong Password";
+							$passError = true;
 						}
 					}
 				}

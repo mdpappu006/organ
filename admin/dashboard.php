@@ -1,6 +1,9 @@
 <?php
-	session_start(); 
+	require_once("../backend/db.php"); 
     $id = $_SESSION['userid'] ?? 0;
+    $query = "SELECT * FROM signup_user";
+	$result= mysqli_query($connect, $query);
+	$totalUser = mysqli_num_rows($result);
     if(!$id){
         header("location: index.php");
         die();
@@ -59,7 +62,9 @@
 											<div class="panel-body bk-primary text-light">
 												<div class="stat-panel text-center">
 
-													<div class="stat-panel-number h1 "></div>
+													<div class="stat-panel-number h1"> 
+														<?php  echo $totalUser;?>
+													</div>
 													<div class="stat-panel-title text-uppercase">Reg Users</div>
 												</div>
 											</div>

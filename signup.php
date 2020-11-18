@@ -6,6 +6,9 @@
 <!-- /.navbar -->
 <main class="main-wrap">
     <!--forms-->
+
+   <!-- <p> Regsitration Successful</p> -->
+   
     <div class="form-wrapper">
         <div class="container">
             <div class="row ">

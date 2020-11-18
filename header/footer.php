@@ -5,7 +5,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-5 col-xl-4">
                     <div class="footer-widgets">
-                        <a class="navbar-brand order-2" href="index.html">
+                        <a class="navbar-brand order-2" href="index.php">
                <h1>Organ<span>Donationbd</span></h1>
 
             </a>

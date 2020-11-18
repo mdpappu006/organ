@@ -12,6 +12,7 @@
 		$donation = $_POST['donation'];
 		$insert = "INSERT INTO signup_user(firstname, lastname, phone, email, pass, address, donate_user) values('$fname', '$lname', '$phone', '$email', '$pass', '$address', '$donation')";
 		$result = mysqli_query($connect, $insert);
+		$_SESSION['success'] = true;
 		header("location: signup.php");
 	}
 ?>	
