@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin Login </title>
+    <title>Admin Login</title>
 
     <!--bootstrap v4.0.0-->
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">

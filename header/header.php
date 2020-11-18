@@ -64,7 +64,9 @@
                       <ul>
                         <li class="dropdown open"> 
                             <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user-circle" aria-hidden="true"></i> 
-                            php<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                            <?php 
+                                echo $_SESSION['username'];
+                            ?><i class="fa fa-angle-down" aria-hidden="true"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="profile.php">Profile Settings</a></li>
                                 <li><a href="update-password.php">Update Password</a></li>

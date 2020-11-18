@@ -1,4 +1,3 @@
-
     <!-- /.navbar -->
     <?php include_once('header/header.php') ;?>
     <!-- /.navbar -->
