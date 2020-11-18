@@ -1266,3 +1266,7 @@ h1 {
 .donor-form-wrapper .form-inside-all .organ-area .titles {
   margin-bottom: 4px;
 }
+
+.error{
+  color: red;
+}

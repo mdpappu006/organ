@@ -1,5 +1,6 @@
 <?php
     require_once "backend/admin-login.php";
+    // session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -47,13 +48,21 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <input type="text" placeholder="Email" name="email"/>
-                                    <input type="password" placeholder="Password" name="password"/>
+                                    <input type="password" placeholder="Password" name="password" class="mb-3" />
+                                    <div class="error">
+                                        <?php 
+                                            if(isset($error)){
+                                                echo "Wrong Password";
+                                            }
+                                        ?>
+                                    </div>
                                 </div>
                 
                             
                                 <div class="col-md-12">
                                     <button type="submit" class="btn" name="adminLogin">Login</button>
                                 </div>
+
                             </div>
                         </form>
                     </div><!--/.form-inside-all-->

@@ -1,8 +1,6 @@
 <?php	
 	session_start(); 
 	require_once("../backend/db.php");
-
-
 		if(isset($_POST['adminLogin'])){
 			$email = trim($_POST['email']);
 			$userpass = password_hash($_POST['password'], PASSWORD_BCRYPT);
@@ -21,7 +19,7 @@
 							header("location: ./dashboard.php");
 							die();
 						}else{
-							echo "wrong Password";
+							$error = true;
 						}
 					}
 				}
