@@ -9,7 +9,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Login </title>
+    <title>
+        <?php include_once('title.php');?>
+    </title>
 
     <!--bootstrap v4.0.0-->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">

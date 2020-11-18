@@ -46,13 +46,22 @@
                             </div>
                 
                             <div class="row">
-                                <div class="col-md-12">
-                                    <input type="text" placeholder="Email" name="email"/>
-                                    <input type="password" placeholder="Password" name="password" class="mb-3" />
+                                <div class="col-md-12 admin">
+                                    <input type="email" placeholder="Email" name="email" required/>
+                                    <div class="error mb-4">
+                                        <?php 
+                                            if(isset($Emailerror)){
+                                                echo "*Invalid Email Address";
+
+                                            }
+                                        ?>
+                                    </div>
+                                    <input type="password" placeholder="Password" name="password" class="mb-3" required/>
+
                                     <div class="error">
                                         <?php 
-                                            if(isset($error)){
-                                                echo "Wrong Password";
+                                            if(isset($passError)){
+                                                echo "*Invalid Password";
                                             }
                                         ?>
                                     </div>

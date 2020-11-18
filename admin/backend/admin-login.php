@@ -19,9 +19,11 @@
 							header("location: ./dashboard.php");
 							die();
 						}else{
-							$error = true;
+							$passError = true;
 						}
 					}
+				}else{
+					$Emailerror = true;
 				}
 			}
 	}

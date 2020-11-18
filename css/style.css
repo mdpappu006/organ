@@ -1067,6 +1067,11 @@ all style
   font-family: 'Raleway', sans-serif;
   margin-bottom: 30px;
 }
+
+.form-inside-all form .admin input{
+  margin-bottom: 5px;
+}
+
 .form-inside-all form input::placeholder{
   opacity: 1;
 }
