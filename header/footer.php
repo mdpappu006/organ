@@ -36,10 +36,11 @@
                         <li>
                             <a href="#">Donate</a>
                         </li>
-
+                        <?php if(!isset($_SESSION['user'])): ?>
                          <li>
                             <a href="./admin/">Admin Login</a>
                         </li>
+                        <?php  endif;?>
                     </ul>
                     </div><!--/.footer-widgets-->
                 </div>

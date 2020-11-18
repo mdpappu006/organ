@@ -1,5 +1,4 @@
-<?php	
-	session_start(); 
+<?php
 	require_once("../backend/db.php");
 		if(isset($_POST['adminLogin'])){
 			$email = trim($_POST['email']);

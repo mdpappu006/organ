@@ -1,5 +1,5 @@
 <?php	
-	session_start();
+	require_once("db.php");
 		if(isset($_POST['userLogin'])){
 		$email = trim($_POST['email']);
 		$userpass = $_POST['password'];
@@ -14,9 +14,7 @@
 					if($data){
 						$p = password_verify($userpass, $_password);
 						if($p == true){
-							$_SESSION['userid'] = $data['id'];
-							header("location: backend/admin/dashboard.php");
-							die();
+							$_SESSION['user'] = true;
 						}else{
 							echo "wrong Password";
 						}

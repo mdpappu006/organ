@@ -1,6 +1,5 @@
 <?php
     require_once "backend/admin-login.php";
-    // session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -33,6 +32,8 @@
 </head>
 
 <body>
+
+<?php if(!isset($_SESSION['user'])){ ?>    
 <main class="main-wrap">
     <!--forms-->
     <div class="form-wrapper">
@@ -81,6 +82,11 @@
     </div>
     <!--forms-->
 </main>
+
+<?php  }else{
+    header("location: ../index.php");
+}
+?> 
     
     <!--jquery-->
     <script src="../js/jquery-1.12.4.min.js"></script>

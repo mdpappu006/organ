@@ -1,3 +1,7 @@
+<?php 
+    require_once("./backend/db.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -40,6 +44,8 @@
             </a>
 
             <div class="d-flex flex-row order-2 order-lg-3">
+                <?php if(!isset($_SESSION['user'])): ?>
+
                 <ul class="navbar-nav login-item flex-row">
                     <li class="nav-item">
                         <a class="nav-link " href="login.php">Login</a>
@@ -51,23 +57,26 @@
 
                 </ul>
 
+                <?php else: ?>
 
-        <div class="header_wrap">
-            <div class="user_login">
-              <ul>
-                <li class="dropdown open"> 
-                    <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user-circle" aria-hidden="true"></i> 
-                    php<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="profile.php">Profile Settings</a></li>
-                        <li><a href="update-password.php">Update Password</a></li>
-                        <li><a href="my-booking.php">My Booking</a></li>
-                        <li><a href="logout.php">Sign Out</a></li>
-                    </ul>
-                </li>
-              </ul>
-            </div>
-        </div>
+                <div class="header_wrap">
+                    <div class="user_login">
+                      <ul>
+                        <li class="dropdown open"> 
+                            <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user-circle" aria-hidden="true"></i> 
+                            php<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="profile.php">Profile Settings</a></li>
+                                <li><a href="update-password.php">Update Password</a></li>
+                                <li><a href="my-booking.php">My Booking</a></li>
+                                <li><a href="./backend/logout.php">Sign Out</a></li>
+                            </ul>
+                        </li>
+                      </ul>
+                    </div>
+                </div>
+
+                <?php endif ;?>
             </div>
 
 

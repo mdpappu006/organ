@@ -4,6 +4,9 @@
     include_once('header/header.php') ;
 ?>
 <!-- /.navbar -->
+
+<?php if(!isset($_SESSION['user'])){ ?>
+
 <main class="main-wrap">
     <!--forms-->
     <div class="form-wrapper">
@@ -36,6 +39,11 @@
     <!--forms-->
 </main>
 
-    <!--footers-->
-    <?php include_once('header/footer.php') ;?>
-    <!--footers-->
+<?php  }else{
+    header("location: index.php");
+}
+?>    
+
+<!--footers-->
+<?php include_once('header/footer.php') ;?>
+<!--footers-->
