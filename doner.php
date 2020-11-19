@@ -1,7 +1,14 @@
+<!-- /.navbar -->
+<?php 
+    include_once('header/header.php') ;
 
-    <!-- /.navbar -->
-    <?php include_once('header/header.php') ;?>
-    <!-- /.navbar -->
+    $id = $_SESSION['user'] ?? 0;
+    if(!$id){
+        header("location: index.php");
+        die();
+    }
+?>
+<!-- /.navbar -->
 
 <main class="main-wrap">
 

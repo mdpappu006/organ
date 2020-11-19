@@ -185,7 +185,7 @@
                                 Everyone can help.</h2>
                             <div class="btns-group">
                                 <button type="button" class="btn">Donate Now</button>
-                                <button type="button" class="btn">Post Request</button>
+                                <a href="form.php"><button type="button" class="btn">Post Request</button></a>
                             </div>
                         </div>
                     </div>

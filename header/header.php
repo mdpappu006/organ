@@ -68,9 +68,7 @@
                                 echo $_SESSION['username'];
                             ?><i class="fa fa-angle-down" aria-hidden="true"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="profile.php">Profile Settings</a></li>
-                                <li><a href="update-password.php">Update Password</a></li>
-                                <li><a href="my-booking.php">Post Request</a></li>
+                                <li><a href="./form.php">Post Request</a></li>
                                 <li><a href="./backend/logout.php">Sign Out</a></li>
                             </ul>
                         </li>
@@ -91,9 +89,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">home</a>
                     </li>
+
+                    <?php if(isset($_SESSION['user'])): ?>
                     <li class="nav-item">
                         <a class="nav-link" href="doner.php">Become a Doner</a>
                     </li>
+                    <?php endif;?>
+
                     <li class="nav-item">
                         <a class="nav-link" href="about.php">About Us</a>
                     </li>
