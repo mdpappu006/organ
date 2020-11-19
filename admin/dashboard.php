@@ -90,7 +90,7 @@
 													<div class="stat-panel-title text-uppercase">Post Request</div>
 												</div>
 											</div>
-											<a href="reg-users.php" class="block-anchor panel-footer">Full Detail <i class="fa fa-arrow-right"></i></a>
+											<a href="post-request.php" class="block-anchor panel-footer">Full Detail <i class="fa fa-arrow-right"></i></a>
 										</div>
 									</div>
 								</div>

@@ -68,7 +68,7 @@
 				<div class="row">
 					<div class="col-md-12">
 
-						<h2 class="page-title">Registered Users</h2>
+						<h2 class="page-title">Post Request</h2>
 
 						<!-- Zero Configuration Table -->
 						<div class="panel panel-default">
@@ -79,26 +79,33 @@
 										<tr>
 											<th>#</th>
 											<th> Name</th>
-											<th>Email </th>
+											<th>Address </th>
 											<th>Contact no</th>
-											<th>Address</th>
-											<th>Donate</th>
+											<th>Required Organ</th>
+											<th>Prescription</th>
+											<th>Email</th>
+											<th>Request For</th>
+											<th>Action</th>
 										</tr>
 									</thead>
 									<tfoot>
 										<tr>
 											<th>#</th>
 											<th> Name</th>
-											<th>Email </th>
+											<th>Address </th>
 											<th>Contact no</th>
-											<th>Address</th>
-											<th>Donate</th>
+											<th>Required Organ</th>
+											<th>Prescription</th>
+											<th>Email</th>
+											<th>Request For</th>
+											<th>Action</th>
 										</tr>
 									</tfoot>
 									<tbody>
 
+
 <?php 
-    $query = "SELECT * FROM signup_user";
+    $query = "SELECT * FROM post_request";
 	$result= mysqli_query($connect, $query);
 
 foreach($result as $data)
@@ -108,14 +115,42 @@ foreach($result as $data)
 
 										<tr>
 											<td> <?php echo $data['id']?></td>
-											<td><?php echo $data['firstname']." ".$data['lastname'] ?></td>
-											<td><?php echo $data['email']?></td>
-											<td><?php echo $data['phone']?></td>
+											<td><?php echo $data['patientName']?></td>
 											<td><?php echo $data['address']?></td>
+											<td><?php echo $data['phone']?></td>
+											<td><?php echo $data['requiredorgan']?></td>
+											<td><?php echo $data['prescription']?></td>
+											<td><?php echo $data['email']?></td>
 											<td><?php echo $data['donate_user']?></td>
+											<td> 
+
+											<?php
+
+if(isset($_REQUEST['eid'])){
+	$id = $data['id'];
+	$eid=$_GET['eid'];
+	$status="0";
+	$query = "UPDATE post_request SET action=$status WHERE id=$eid";
+	$Result =mysqli_query($connect, $query);
+	header("location: post-request.php");
+}
+	
+if(isset($_REQUEST['aeid'])){
+	$id = $data['id'];
+	$aeid=$_GET['aeid'];
+	$status=1;
+	$query = "UPDATE post_request SET action=$status WHERE id=$aeid";
+	$Result =mysqli_query($connect, $query);
+	header("location: post-request.php");
+}
+								
+											if($data['action'] == 1):
+											?>	<a href="post-request.php?eid=<?php echo $id?>">Active</a> 
+											<?php else:?>
+											 <a href="post-request.php?aeid=<?php echo $id?>">Inactive</a></td>
+											<?php endif;?>
 										</tr>
 <?php }?>
-										
 
 									</tbody>
 								</table>
