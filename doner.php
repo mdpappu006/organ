@@ -1,6 +1,7 @@
 <!-- /.navbar -->
 <?php 
     include_once('header/header.php') ;
+    include_once('backend/become-donar.php') ;
 
     $id = $_SESSION['user'] ?? 0;
     if(!$id){
@@ -42,25 +43,25 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="text" placeholder="First Name"/>
+                                            <input type="text" placeholder="First Name" name="donorfname" />
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" placeholder="Last Name"/>
+                                            <input type="text" placeholder="Last Name" name="donorlname" />
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" placeholder="Age"/>
+                                            <input type="text" placeholder="Age" name="donorage" />
                                         </div>
                                               <div class="col-md-6">
-                                            <input type="email" placeholder="Email"/>
+                                            <input type="email" placeholder="Email" name="donoremail" />
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" placeholder="Phone Number"/>
+                                            <input type="text" placeholder="Phone Number" name="donor-phone"/>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" placeholder="Address"/>
+                                            <input type="text" placeholder="Address" name="donor-address" />
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" placeholder="City"/>
+                                            <input type="text" placeholder="City" name="donor-city" />
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="gender-area">
@@ -69,11 +70,12 @@
                                                 </div> 
                                                 <div class="rd-btns">
                                                     <label>Male
-                                                        <input type="radio" checked name="radio" value="organ">
+                                                        <input type="radio" checked name="radio" value="Male">
                                                         <span class="checkmark"></span>
                                                     </label>
+
                                                     <label>Female
-                                                        <input type="radio" name="radio" value="blood">
+                                                        <input type="radio" name="radio" value="Female">
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
@@ -84,47 +86,46 @@
                                                 <div class="titles">
                                                     <h4>Your Blood Group</h4>
                                                 </div> 
-                                                <input type="text" placeholder="Enter Blood Group"/>
+                                                <input type="text" placeholder="Enter Blood Group" name="donor-b-group" />
                                             </div>                                            
                                         </div>
 
                                         <div class="col-md-12">
                                             <h4>Blood Donate</h4>
                                             <label>Blood
-                                                <input type="checkbox" name="eyes" id="eyes" value="eyes">
+                                                <input type="checkbox" name="donorblood" id="eyes" value="blood">
                                                 <span class="checkmark"></span>
                                             </label>
                                         </div>
 
                                         <div class="col-lg-12">
                                             <div class="organ-area">
-
                                                 <div class="titles">
                                                     <h4>Organs that you wish to donate</h4>
                                                 </div>
                                                 <label>Eyes
-                                                    <input type="checkbox" name="eyes" id="eyes" value="eyes">
+                                                    <input type="checkbox" name="organs" id="eyes" value="eyes">
                                                     <span class="checkmark"></span>
                                                 </label>
 
                                                 <label>Tissues
-                                                    <input type="checkbox" name="tissues" id="tissues" value="tissues">
+                                                    <input type="checkbox" name="organs" id="tissues" value="tissues">
                                                     <span class="checkmark"></span>
                                                 </label>
 
                                                 <label>kidney
-                                                    <input type="checkbox" name="kidney" id="kidney" value="kidney">
+                                                    <input type="checkbox" name="organs" id="kidney" value="kidney">
                                                     <span class="checkmark"></span>
                                                 </label>
 
                                                 <label>lung
-                                                    <input type="checkbox" name="lung" id="lung" value="lung">
+                                                    <input type="checkbox" name="organs" id="lung" value="lung">
                                                     <span class="checkmark"></span>
                                                 
                                                 </label>
 
                                                 <label>plasma
-                                                    <input type="checkbox" name="plasma" id="plasma" value="plasma">
+                                                    <input type="checkbox" name="organs" id="plasma" value="plasma">
                                                     <span class="checkmark"></span>
                                                 </label>
 
@@ -132,13 +133,13 @@
                                               
                                                 <div class="col-md-12">
                                                         <label>Any Part of My Body
-                                                            <input type="checkbox" name="radio" id="dody" value="body">
+                                                            <input type="checkbox" name="organs" id="dody" value="body">
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
                                                     <div class="col-md-12">
                                                         <label>LIVING DONATE
-                                                            <input type="checkbox" name="radio" id="living" value="living">
+                                                            <input type="checkbox" name="organs" id="living" value="living">
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
@@ -162,24 +163,24 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Name"/>
+                                            <input type="text" placeholder="Name" name="ename" />
                                         </div>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Relationship"/>
+                                            <input type="text" placeholder="Relationship" name="eRelationship" />
                                         </div>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Phone Number"/>
+                                            <input type="text" placeholder="Phone Number" name="ephone" />
                                         </div>
                                            <div class="col-md-12">
-                                            <input type="email" placeholder="Email"/>
+                                            <input type="email" placeholder="Email" name="eEmail" />
                                         </div>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Address"/>
+                                            <input type="text" placeholder="Address" name="eaddress" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn mt-5">Send</button>
+                                    <button type="submit" class="btn mt-5" name="become-donor">Send</button>
                                 </div>
                             </div>
                         </form>
