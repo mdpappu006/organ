@@ -31,10 +31,10 @@
     <!--forms-->
     <div class="donor-form-wrapper">
         <div class="container">
-            <div class="row ">
+            <div class="row">
                 <div class="col-md-12">
                     <div class="form-inside-all">
-                        <form>
+                        <form method="POST">
                             <div class="row">
                                 <div class="col-lg-8">
                                     <div class="titles">
@@ -87,55 +87,73 @@
                                                 <input type="text" placeholder="Enter Blood Group"/>
                                             </div>                                            
                                         </div>
+
+                                        <div class="col-md-12">
+                                            <h4>Blood Donate</h4>
+                                            <label>Blood
+                                                <input type="checkbox" name="eyes" id="eyes" value="eyes">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+
                                         <div class="col-lg-12">
                                             <div class="organ-area">
+
                                                 <div class="titles">
                                                     <h4>Organs that you wish to donate</h4>
                                                 </div>
                                                 <label>Eyes
-                                                    <input type="radio" checked name="radio" id="eyes" value="eyes">
+                                                    <input type="checkbox" name="eyes" id="eyes" value="eyes">
                                                     <span class="checkmark"></span>
                                                 </label>
+
                                                 <label>Tissues
-                                                    <input type="radio" name="radio" id="tissues" value="tissues">
+                                                    <input type="checkbox" name="tissues" id="tissues" value="tissues">
                                                     <span class="checkmark"></span>
                                                 </label>
+
                                                 <label>kidney
-                                                    <input type="radio" name="radio" id="kidney" value="kidney">
+                                                    <input type="checkbox" name="kidney" id="kidney" value="kidney">
                                                     <span class="checkmark"></span>
                                                 </label>
-                                                   <label>lung
-                                                    <input type="radio" name="radio" id="lung" value="lung">
+
+                                                <label>lung
+                                                    <input type="checkbox" name="lung" id="lung" value="lung">
+                                                    <span class="checkmark"></span>
+                                                
+                                                </label>
+
+                                                <label>plasma
+                                                    <input type="checkbox" name="plasma" id="plasma" value="plasma">
                                                     <span class="checkmark"></span>
                                                 </label>
-                                                    </label>
-                                                   <label>plasma
-                                                    <input type="radio" name="radio" id="plasma" value="plasma">
-                                                    <span class="checkmark"></span>
-                                                </label>
+
                                                 <div class="row">
-                                                    <div class="col-md-12">
+                                              
+                                                <div class="col-md-12">
                                                         <label>Any Part of My Body
-                                                            <input type="radio" checked name="radio" id="dody" value="body">
+                                                            <input type="checkbox" name="radio" id="dody" value="body">
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
                                                     <div class="col-md-12">
                                                         <label>LIVING DONATE
-                                                            <input type="radio" checked name="radio" id="living" value="living">
+                                                            <input type="checkbox" name="radio" id="living" value="living">
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
-                                              
+
                                                     <div class="col-md-12">
                                                         <label> Yes, I agree to <span>Organdonation BD</span> Privacy Policy and Terms of Use
-                                                            <input type="radio" checked name="radio" id="policy" value="policy">
+                                                            <input type="checkbox" name="policy" id="policy" value="policy" required class="term-policy">
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+
+                                        </div>                                      
+
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -175,4 +193,4 @@
 
     <!--footers-->
     <?php include_once('header/footer.php') ;?>
-    <!--footers-->
+    <!--footers

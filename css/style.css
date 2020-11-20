@@ -1055,6 +1055,21 @@ all style
   display: block;
 }
 
+
+.form-inside-all  label input[type=checkbox]:checked ~ .checkmark {
+  border: 0;
+}
+.form-inside-all  label input[type=checkbox]:checked ~ .checkmark:after {
+  display: block;
+}
+
+.form-inside-all label input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
 .form-inside-all form input{
   width: 100%;
   background-color: #ffffff;
@@ -1346,4 +1361,11 @@ user_login
 
 .user_login .dropdown-menu > li > a:hover {
     background: #eceef5;
+}
+
+input.term-policy{
+    position: absolute!important;
+    left: 0;
+    top: -20px;
+    width: 45%!important;
 }
