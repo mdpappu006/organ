@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 20, 2020 at 02:37 PM
+-- Generation Time: Nov 21, 2020 at 09:41 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.4.0
 
@@ -61,19 +61,25 @@ CREATE TABLE IF NOT EXISTS `become_donor` (
   `adress` varchar(255) NOT NULL,
   `city` varchar(100) NOT NULL,
   `gender` varchar(30) NOT NULL,
-  `e_name` int(100) NOT NULL,
-  `e_relationship` int(100) NOT NULL,
+  `e_name` varchar(100) NOT NULL,
+  `e_relationship` varchar(100) NOT NULL,
   `e_phone` int(15) NOT NULL,
   `e_email` varchar(100) NOT NULL,
   `e_address` varchar(255) NOT NULL,
   `blood_group` varchar(30) NOT NULL,
-  `blood_donate` varchar(100) NOT NULL,
+  `blood_donate` varchar(100) DEFAULT NULL,
   `organs_donate` varchar(100) NOT NULL,
-  `body_part` varchar(100) NOT NULL,
-  `living_donate` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `become_donor`
+--
+
+INSERT INTO `become_donor` (`id`, `firstname`, `lastname`, `age`, `email`, `phone`, `adress`, `city`, `gender`, `e_name`, `e_relationship`, `e_phone`, `e_email`, `e_address`, `blood_group`, `blood_donate`, `organs_donate`) VALUES
+(1, 'John', 'Doe', 25, 'JohnDoe@gmail.com', 1919999999, 'Dhaka', 'Dhaka', 'Male', 'Ruth', 'wife', 1919999999, 'ruth@gmail.com', 'Dhaka', 'O+', 'blood', ''),
+(2, 'Michael', 'clarke', 26, 'michaelclarke@gmail.com', 1812546321, 'Dhaka', 'Dhaka', 'Male', 'Ruth', '', 1812546321, 'ruth@gmail.com', 'Dhaka', 'A+', '', 'kidney');
 
 -- --------------------------------------------------------
 
