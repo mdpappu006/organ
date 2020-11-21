@@ -4,5 +4,6 @@
 		<li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
 		<li><a href="reg-users.php"><i class="fa fa-users"></i> Reg Users</a></li>
 		<li><a href="post-request.php"><i class="fa fa-users"></i> Post Request</a></li>
+		<li><a href="doner-list.php"><i class="fa fa-users"></i> Doner List</a></li>
 	</ul>
 </nav>

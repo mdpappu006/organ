@@ -69,6 +69,7 @@
                             ?><i class="fa fa-angle-down" aria-hidden="true"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="./form.php">Post Request</a></li>
+                                <li><a href="./post.php">Your Post</a></li>
                                 <li><a href="./backend/logout.php">Sign Out</a></li>
                             </ul>
                         </li>

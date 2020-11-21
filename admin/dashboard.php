@@ -11,6 +11,13 @@
 	$PosttotalUser = mysqli_num_rows($Postresult);
 	// End Post Request Query 
 	
+
+	// Doner list Query 
+	$donerquery = "SELECT * FROM become_donor";
+	$donerresult= mysqli_query($connect, $donerquery);
+	$donertotalUser = mysqli_num_rows($donerresult);
+	// End Doner list Query 
+
     if(!$id){
         header("location: index.php");
         die();
@@ -93,6 +100,22 @@
 											<a href="post-request.php" class="block-anchor panel-footer">Full Detail <i class="fa fa-arrow-right"></i></a>
 										</div>
 									</div>
+
+									<div class="col-md-3">
+										<div class="panel panel-default">
+											<div class="panel-body bk-primary text-light">
+												<div class="stat-panel text-center">
+
+													<div class="stat-panel-number h1"> 
+														<?php  echo $donertotalUser;?>
+													</div>
+													<div class="stat-panel-title text-uppercase">Doner List</div>
+												</div>
+											</div>
+											<a href="doner-list.php" class="block-anchor panel-footer">Full Detail <i class="fa fa-arrow-right"></i></a>
+										</div>
+									</div>
+
 								</div>
 							</div>
 						</div>

@@ -1,5 +1,12 @@
     <!-- /.navbar -->
-    <?php include_once('header/header.php') ;?>
+    <?php 
+    	include_once('header/header.php');
+
+    	// Doner list Query 
+		$donerquery = "SELECT * FROM become_donor";
+		$donerresult= mysqli_query($connect, $donerquery);
+		// End Doner list Query 
+    ?>
     <!-- /.navbar -->
 
     <main class="main-wrap">
@@ -23,127 +30,31 @@
             <div class="container">
                 <div class="organ-donors-sc">
                     <h3 class="organ-donors-title">Organ Donors</h3>
-                    <div class="row justify-content-center">
+                    <div class="row">
+                    <?php 
+                    	foreach ($donerresult as $data): 
+                    	if ($data['organs_donate']):
+                    ?>
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="single-organ-donors-inner text-center">
                                 <div class="thumb">
                                     <img src="img/donors/1.png" alt="img">
                                 </div>
                                 <div class="details">
-                                    <h3>John Doe</h3>
+                                    <h3><?php echo $data['firstname'] ." ". $data['lastname']?></h3>
                                     <ul class="meta">
-                                        <li><span>Organ Type:</span> Kidneys</li>
-                                        <li><span>Numbers:</span> 01919999999</li>
-                                        <li>Dhaka</li>
+                                        <li><span>Organ Type:</span> <?php echo $data['organs_donate'];?></li>
+                                        <li><span>Numbers: </span><?php echo $data['phone'];?> </li>
+                                        <li><?php echo $data['city']?></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="single-organ-donors-inner text-center">
-                                <div class="thumb">
-                                    <img src="img/donors/2.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <h3>John Doe</h3>
-                                    <ul class="meta">
-                                        <li><span>Organ Type:</span> Kidneys</li>
-                                        <li><span>Numbers:</span> 01919999999</li>
-                                        <li>Dhaka</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="single-organ-donors-inner text-center">
-                                <div class="thumb">
-                                    <img src="img/donors/3.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <h3>John Doe</h3>
-                                    <ul class="meta">
-                                        <li><span>Organ Type:</span> Kidneys</li>
-                                        <li><span>Numbers:</span> 01919999999</li>
-                                        <li>Dhaka</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="single-organ-donors-inner text-center">
-                                <div class="thumb">
-                                    <img src="img/donors/4.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <h3>John Doe</h3>
-                                    <ul class="meta">
-                                        <li><span>Organ Type:</span> Kidneys</li>
-                                        <li><span>Numbers:</span> 01919999999</li>
-                                        <li>Dhaka</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="single-organ-donors-inner text-center">
-                                <div class="thumb">
-                                    <img src="img/donors/1.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <h3>John Doe</h3>
-                                    <ul class="meta">
-                                        <li><span>Organ Type:</span> Kidneys</li>
-                                        <li><span>Numbers:</span> 01919999999</li>
-                                        <li>Dhaka</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="single-organ-donors-inner text-center">
-                                <div class="thumb">
-                                    <img src="img/donors/2.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <h3>John Doe</h3>
-                                    <ul class="meta">
-                                        <li><span>Organ Type:</span> Kidneys</li>
-                                        <li><span>Numbers:</span> 01919999999</li>
-                                        <li>Dhaka</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="single-organ-donors-inner text-center">
-                                <div class="thumb">
-                                    <img src="img/donors/3.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <h3>John Doe</h3>
-                                    <ul class="meta">
-                                        <li><span>Organ Type:</span> Kidneys</li>
-                                        <li><span>Numbers:</span> 01919999999</li>
-                                        <li>Dhaka</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="single-organ-donors-inner text-center">
-                                <div class="thumb">
-                                    <img src="img/donors/4.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <h3>John Doe</h3>
-                                    <ul class="meta">
-                                        <li><span>Organ Type:</span> Kidneys</li>
-                                        <li><span>Numbers:</span> 01919999999</li>
-                                        <li>Dhaka</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+
+                    <?php 
+                    	endif;
+                		endforeach;
+                	?>
                     </div>
                 </div>
             </div>
@@ -155,127 +66,33 @@
             <div class="container">
                 <div class="organ-donors-sc">
                     <h3 class="organ-donors-title">Blood Donors</h3>
-                    <div class="row justify-content-center">
+                    <div class="row">
+
+                    <?php 
+                    	foreach ($donerresult as $data): 
+                    	if ($data['blood_donate']):
+                    ?>
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="single-organ-donors-inner text-center">
                                 <div class="thumb">
                                     <img src="img/donors/1.png" alt="img">
                                 </div>
                                 <div class="details">
-                                    <h3>John Doe</h3>
+                                    <h3><?php echo $data['firstname'] ." ".  $data['lastname']?></h3>
                                     <ul class="meta">
-                                        <li><span>Organ Type:</span> Kidneys</li>
-                                        <li><span>Numbers:</span> 01919999999</li>
-                                        <li>Dhaka</li>
+                                        <li><span>Organ Type:</span> <?php echo $data['blood_donate']. " (". $data['blood_group'] . ")" ?></li>
+                                        <li><span>Numbers: </span><?php echo $data['phone'];?> </li>
+                                        <li><?php echo $data['city']?></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="single-organ-donors-inner text-center">
-                                <div class="thumb">
-                                    <img src="img/donors/2.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <h3>John Doe</h3>
-                                    <ul class="meta">
-                                        <li><span>Organ Type:</span> Kidneys</li>
-                                        <li><span>Numbers:</span> 01919999999</li>
-                                        <li>Dhaka</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="single-organ-donors-inner text-center">
-                                <div class="thumb">
-                                    <img src="img/donors/3.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <h3>John Doe</h3>
-                                    <ul class="meta">
-                                        <li><span>Organ Type:</span> Kidneys</li>
-                                        <li><span>Numbers:</span> 01919999999</li>
-                                        <li>Dhaka</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="single-organ-donors-inner text-center">
-                                <div class="thumb">
-                                    <img src="img/donors/4.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <h3>John Doe</h3>
-                                    <ul class="meta">
-                                        <li><span>Organ Type:</span> Kidneys</li>
-                                        <li><span>Numbers:</span> 01919999999</li>
-                                        <li>Dhaka</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="single-organ-donors-inner text-center">
-                                <div class="thumb">
-                                    <img src="img/donors/1.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <h3>John Doe</h3>
-                                    <ul class="meta">
-                                        <li><span>Organ Type:</span> Kidneys</li>
-                                        <li><span>Numbers:</span> 01919999999</li>
-                                        <li>Dhaka</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="single-organ-donors-inner text-center">
-                                <div class="thumb">
-                                    <img src="img/donors/2.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <h3>John Doe</h3>
-                                    <ul class="meta">
-                                        <li><span>Organ Type:</span> Kidneys</li>
-                                        <li><span>Numbers:</span> 01919999999</li>
-                                        <li>Dhaka</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="single-organ-donors-inner text-center">
-                                <div class="thumb">
-                                    <img src="img/donors/3.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <h3>John Doe</h3>
-                                    <ul class="meta">
-                                        <li><span>Organ Type:</span> Kidneys</li>
-                                        <li><span>Numbers:</span> 01919999999</li>
-                                        <li>Dhaka</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="single-organ-donors-inner text-center">
-                                <div class="thumb">
-                                    <img src="img/donors/4.png" alt="img">
-                                </div>
-                                <div class="details">
-                                    <h3>John Doe</h3>
-                                    <ul class="meta">
-                                        <li><span>Organ Type:</span> Kidneys</li>
-                                        <li><span>Numbers:</span> 01919999999</li>
-                                        <li>Dhaka</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+
+                    <?php 
+                    	endif;
+                		endforeach;
+                	?>
+
                     </div>
                 </div>
             </div>

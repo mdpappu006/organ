@@ -16,5 +16,7 @@
         echo "donor list";
     }elseif($url == 'form'){
         echo "form";
+    }elseif($url == 'post'){
+        echo "Your Post";
     }
 ?> 
