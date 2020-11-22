@@ -1,6 +1,8 @@
-
     <!-- main nav start -->
-    <?php include_once('header/header.php') ;?>
+    <?php 
+        include_once('header/header.php') ;
+        include_once('backend/contact.php');
+    ?>
     <!-- /.navbar -->
 
     <main class="main-wrap">
@@ -33,12 +35,12 @@
                     <div class="col-md-6 align-self-center">
                         <div class="contact-form">
                             <div class="bn-content-in">
-                                <form>
-                                    <input placeholder="First Name">
-                                    <input placeholder="Last Name">
-                                    <input placeholder="Phone Number">
-                                    <textarea rows="5" placeholder="Your Message"></textarea>
-                                    <button type="submit" class="btn">Send Message</button>
+                                <form method="POST">
+                                    <input placeholder="First Name" name="fname">
+                                    <input placeholder="Last Name" name="lname">
+                                    <input placeholder="Phone Number" name="phone">
+                                    <textarea rows="5" placeholder="Your Message" name="messages"></textarea>
+                                    <button type="submit" class="btn" name="contact-form">Send Message</button>
                                 </form>
                             </div>
                         </div>
