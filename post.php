@@ -18,18 +18,11 @@
         <section class="organ-donors-sec organ-donors-sec-1">
             <div class="container">
                 <div class="organ-donors-sc">
-                	<?php 
-                		foreach ($donerresult as $data):  
-                		if($data['action'] == 0):
-                	?>
-					<h3 class="organ-donors-title">Post No Found!</h3>
-					<?php endif;?>
+                	<h3 class="organ-donors-title">Post Request</h3>
 
-					<?php if($data['action'] == 1): ?>
-                    <h3 class="organ-donors-title">Post Request</h3>
-                	<?php endif; ?>
                     <div class="row">
                     	<?php 
+                    		foreach ($donerresult as $data):  
                     		if($data['action'] == 1):
                     	?>
                         <div class="col-xl-3 col-lg-4 col-md-6">

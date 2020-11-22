@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 21, 2020 at 09:41 AM
+-- Generation Time: Nov 21, 2020 at 11:43 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.4.0
 
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `become_donor` (
   `organs_donate` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `become_donor`
@@ -79,7 +79,8 @@ CREATE TABLE IF NOT EXISTS `become_donor` (
 
 INSERT INTO `become_donor` (`id`, `firstname`, `lastname`, `age`, `email`, `phone`, `adress`, `city`, `gender`, `e_name`, `e_relationship`, `e_phone`, `e_email`, `e_address`, `blood_group`, `blood_donate`, `organs_donate`) VALUES
 (1, 'John', 'Doe', 25, 'JohnDoe@gmail.com', 1919999999, 'Dhaka', 'Dhaka', 'Male', 'Ruth', 'wife', 1919999999, 'ruth@gmail.com', 'Dhaka', 'O+', 'blood', ''),
-(2, 'Michael', 'clarke', 26, 'michaelclarke@gmail.com', 1812546321, 'Dhaka', 'Dhaka', 'Male', 'Ruth', '', 1812546321, 'ruth@gmail.com', 'Dhaka', 'A+', '', 'kidney');
+(2, 'Michael', 'clarke', 26, 'michaelclarke@gmail.com', 1812546321, 'Dhaka', 'Dhaka', 'Male', 'Ruth', '', 1812546321, 'ruth@gmail.com', 'Dhaka', 'A+', '', 'eyes'),
+(3, 'Ruth', 'Jackson', 26, 'ruthjackson@gmail.com', 1840488752, 'Dhaka', 'Dhaka', 'Female', 'John', 'Husband', 1840488752, 'abc@gmail.com', 'Dhaka', 'A-', '', 'tissues');
 
 -- --------------------------------------------------------
 
@@ -99,14 +100,15 @@ CREATE TABLE IF NOT EXISTS `post_request` (
   `donate_user` varchar(100) NOT NULL,
   `action` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `post_request`
 --
 
 INSERT INTO `post_request` (`id`, `patientName`, `address`, `phone`, `requiredorgan`, `prescription`, `email`, `donate_user`, `action`) VALUES
-(1, 'User', 'Tangail', 1840488752, 'Blood', '', 'user@gmail.com', 'blood', 1);
+(1, 'User', 'Tangail', 1840488752, 'Blood', '', 'user@gmail.com', 'blood', 1),
+(2, 'Mr A', 'Dhaka', 1845412125, 'eyes', '', 'mra@gmail.com', 'organ', 1);
 
 -- --------------------------------------------------------
 
@@ -125,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `signup_user` (
   `address` varchar(100) NOT NULL,
   `donate_user` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `signup_user`
@@ -133,7 +135,8 @@ CREATE TABLE IF NOT EXISTS `signup_user` (
 
 INSERT INTO `signup_user` (`id`, `firstname`, `lastname`, `phone`, `email`, `pass`, `address`, `donate_user`) VALUES
 (1, 'Nazmul', 'Hossain', 1775151401, 'mdpappu006@gmail.com', '$2y$10$rneM3HF685fsY5ADGj53ae6OWdtGNrqHSYzDVPxqDuCGxzOcqwxD.', 'Tangail', 'blood'),
-(2, 'John', 'Deo', 1840488452, 'Johndeo@gmail.com', '$2y$10$nr7OILtRetjlg1XqKZEjJeerzDvo6DZOWZraEu9gCzLm2eAyVrU4e', 'Dhaka', 'organ');
+(2, 'John', 'Deo', 1840488452, 'Johndeo@gmail.com', '$2y$10$nr7OILtRetjlg1XqKZEjJeerzDvo6DZOWZraEu9gCzLm2eAyVrU4e', 'Dhaka', 'organ'),
+(3, 'doyal', 'miah', 1726616402, 'm.doyalhossain83@gmail.com', '$2y$10$G7Kdb2.Pl2JjUgiFoFX9sOqLG/VULgheQQ10ks7/0IH3LRcQmME/q', 'Tangail', 'blood');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

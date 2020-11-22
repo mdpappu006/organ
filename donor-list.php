@@ -1,7 +1,11 @@
     <!-- /.navbar -->
     <?php 
     	include_once('header/header.php');
-
+	    $id = $_SESSION['user'] ?? 0;
+	    if(!$id){
+	        header("location: index.php");
+	        die();
+	    }
     	// Doner list Query 
 		$donerquery = "SELECT * FROM become_donor";
 		$donerresult= mysqli_query($connect, $donerquery);

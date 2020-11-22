@@ -5,5 +5,6 @@
 		<li><a href="reg-users.php"><i class="fa fa-users"></i> Reg Users</a></li>
 		<li><a href="post-request.php"><i class="fa fa-users"></i> Post Request</a></li>
 		<li><a href="doner-list.php"><i class="fa fa-users"></i> Doner List</a></li>
+		<li><a href="manage-conactusquery.php"><i class="fa fa-users"></i>Conact Us</a></li>
 	</ul>
 </nav>

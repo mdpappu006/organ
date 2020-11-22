@@ -95,11 +95,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="doner.php">Become a Doner</a>
                     </li>
-                    <?php endif;?>
+                    
                     
                     <li class="nav-item">
                         <a class="nav-link" href="donor-list.php">Donor List</a>
                     </li>
+
+                    <?php endif;?>
 
                     <li class="nav-item">
                         <a class="nav-link" href="about.php">About Us</a>

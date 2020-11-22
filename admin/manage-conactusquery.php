@@ -1,10 +1,27 @@
 <?php
-	require_once("../backend/db.php"); 
-    $id = $_SESSION['userid'] ?? 0;
-	if(!$id){
-        header("location: index.php");
-        die();
-    }
+session_start();
+error_reporting(0);
+include('includes/config.php');
+if(strlen($_SESSION['alogin'])==0)
+	{	
+header('location:index.php');
+}
+else{
+if(isset($_REQUEST['eid']))
+	{
+$eid=intval($_GET['eid']);
+$status=1;
+$sql = "UPDATE tblcontactusquery SET status=:status WHERE  id=:eid";
+$query = $dbh->prepare($sql);
+$query -> bindParam(':status',$status, PDO::PARAM_STR);
+$query-> bindParam(':eid',$eid, PDO::PARAM_STR);
+$query -> execute();
+
+$msg="Testimonial Successfully Inacrive";
+}
+
+
+
  ?>
 
 <!doctype html>
@@ -18,7 +35,7 @@
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Admin Manage</title>
+	<title>Admin Manage Queries   </title>
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -68,93 +85,72 @@
 				<div class="row">
 					<div class="col-md-12">
 
-						<h2 class="page-title">Post Request</h2>
+						<h2 class="page-title">Manage Contact Us Queries</h2>
 
 						<!-- Zero Configuration Table -->
 						<div class="panel panel-default">
-							<div class="panel-heading">Reg Users</div>
+							<div class="panel-heading">User queries</div>
 							<div class="panel-body">
+							<?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
+				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
 								<table id="zctb" class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 									<thead>
 										<tr>
-											<th>#</th>
-											<th> Name</th>
-											<th>Address </th>
-											<th>Contact no</th>
-											<th>Required Organ</th>
-											<th>Prescription</th>
+										<th>#</th>
+											<th>Name</th>
 											<th>Email</th>
-											<th>Request For</th>
+											<th>Contact No</th>
+											<th>Message</th>
+											<th>Posting date</th>
 											<th>Action</th>
 										</tr>
 									</thead>
 									<tfoot>
 										<tr>
-											<th>#</th>
-											<th> Name</th>
-											<th>Address </th>
-											<th>Contact no</th>
-											<th>Required Organ</th>
-											<th>Prescription</th>
+										<th>#</th>
+											<th>Name</th>
 											<th>Email</th>
-											<th>Request For</th>
+											<th>Contact No</th>
+											<th>Message</th>
+											<th>Posting date</th>
 											<th>Action</th>
+										</tr>
 										</tr>
 									</tfoot>
 									<tbody>
 
-
-<?php 
-    $query = "SELECT * FROM post_request";
-	$result= mysqli_query($connect, $query);
-
-foreach($result as $data)
-{				
-
-?>	
-
+									<?php $sql = "SELECT * from  tblcontactusquery ";
+$query = $dbh -> prepare($sql);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+foreach($results as $result)
+{				?>	
 										<tr>
-											<td> <?php echo $data['id']?></td>
-											<td><?php echo $data['patientName']?></td>
-											<td><?php echo $data['address']?></td>
-											<td><?php echo $data['phone']?></td>
-											<td><?php echo $data['requiredorgan']?></td>
-											<td><?php echo $data['prescription']?></td>
-											<td><?php echo $data['email']?></td>
-											<td><?php echo $data['donate_user']?></td>
-											<td> 
+											<td><?php echo htmlentities($cnt);?></td>
+											<td><?php echo htmlentities($result->name);?></td>
+											<td><?php echo htmlentities($result->EmailId);?></td>
+											<td><?php echo htmlentities($result->ContactNumber);?></td>
+											<td><?php echo htmlentities($result->Message);?></td>
+											<td><?php echo htmlentities($result->PostingDate);?></td>
+																<?php if($result->status==1)
+{
+	?><td>Read</td>
+<?php } else {?>
 
-											<?php
-											
-$id = $data['id'];
-if(isset($_REQUEST['eid'])){
-	
-	$eid=$_GET['eid'];
-	$status="0";
-	$query = "UPDATE post_request SET action=$status WHERE id=$eid";
-	$Result =mysqli_query($connect, $query);
-	header("location: post-request.php");
-}
-	$id = $data['id'];
-if(isset($_REQUEST['aeid'])){
-	
-	$aeid=$_GET['aeid'];
-	$status=1;
-	$query = "UPDATE post_request SET action=$status WHERE id=$aeid";
-	$Result =mysqli_query($connect, $query);
-	header("location: post-request.php");
-}
-								
-											if($data['action'] == 1):
-											?>	<a href="post-request.php?eid=<?php echo $id?>">Active</a> 
-											<?php else:?>
-											 <a href="post-request.php?aeid=<?php echo $id?>">Inactive</a></td>
-											<?php endif;?>
+<td><a href="manage-conactusquery.php?eid=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to read')" >Pending</a>
+</td>
+<?php } ?>
 										</tr>
-<?php }?>
-
+										<?php $cnt=$cnt+1; }} ?>
+										
 									</tbody>
 								</table>
+
+						
+
 							</div>
 						</div>
 
@@ -179,3 +175,4 @@ if(isset($_REQUEST['aeid'])){
 	<script src="js/main.js"></script>
 </body>
 </html>
+<?php } ?>
