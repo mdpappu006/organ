@@ -14,7 +14,8 @@
                             <h1>It Needs lives to
                             <span>save</span> lives.</h1>
                             <p>By donating your organs and tissue after you die, you can save or improve as many as 75 lives. Many families say that knowing their loved one helped save.</p>
-                            <form>
+                            
+                            <form method="POST" action="doner-form.php">
                                 <div class="row">
                                     <div class=" col-sm-4">
                                         <select>
@@ -23,10 +24,10 @@
                                         </select>
                                     </div>
                                     <div class="col-sm-8">
-                                        <input type="search" placeholder="Enter Donate Organ Or Blood Type"/>
+                                        <input type="search" placeholder="Enter Donate Organ Or Blood Type" name="search-d" />
                                     </div>
                                     <div class="col-12">
-                                        <button type="submit" class="btn">Search</button>
+                                        <button type="submit" class="btn" name="search-doner">Search</button>
                                     </div>
                                 </div>
                             </form>

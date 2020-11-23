@@ -36,10 +36,10 @@
                         <div class="contact-form">
                             <div class="bn-content-in">
                                 <form method="POST">
-                                    <input placeholder="First Name" name="fname">
-                                    <input placeholder="Last Name" name="lname">
-                                    <input placeholder="Phone Number" name="phone">
-                                    <textarea rows="5" placeholder="Your Message" name="messages"></textarea>
+                                    <input placeholder="First Name" name="fname" required>
+                                    <input placeholder="Last Name" name="lname" required>
+                                    <input placeholder="Phone Number" name="phone" required>
+                                    <textarea rows="5" placeholder="Your Message" name="messages" required></textarea>
                                     <button type="submit" class="btn" name="contact-form">Send Message</button>
                                 </form>
                             </div>
