@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 21, 2020 at 11:43 AM
+-- Generation Time: Nov 23, 2020 at 03:06 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.4.0
 
@@ -81,6 +81,29 @@ INSERT INTO `become_donor` (`id`, `firstname`, `lastname`, `age`, `email`, `phon
 (1, 'John', 'Doe', 25, 'JohnDoe@gmail.com', 1919999999, 'Dhaka', 'Dhaka', 'Male', 'Ruth', 'wife', 1919999999, 'ruth@gmail.com', 'Dhaka', 'O+', 'blood', ''),
 (2, 'Michael', 'clarke', 26, 'michaelclarke@gmail.com', 1812546321, 'Dhaka', 'Dhaka', 'Male', 'Ruth', '', 1812546321, 'ruth@gmail.com', 'Dhaka', 'A+', '', 'eyes'),
 (3, 'Ruth', 'Jackson', 26, 'ruthjackson@gmail.com', 1840488752, 'Dhaka', 'Dhaka', 'Female', 'John', 'Husband', 1840488752, 'abc@gmail.com', 'Dhaka', 'A-', '', 'tissues');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contactus`
+--
+
+DROP TABLE IF EXISTS `contactus`;
+CREATE TABLE IF NOT EXISTS `contactus` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fname` varchar(30) NOT NULL,
+  `lname` varchar(30) NOT NULL,
+  `phone` int(15) NOT NULL,
+  `messages` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contactus`
+--
+
+INSERT INTO `contactus` (`id`, `fname`, `lname`, `phone`, `messages`) VALUES
+(1, 'Nazmul', 'Hossain', 1775151041, 'your site needs to make more reliable :)');
 
 -- --------------------------------------------------------
 

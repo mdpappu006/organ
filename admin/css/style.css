@@ -745,3 +745,10 @@ li {
   height: 100%;
   width: 100%;
 }
+
+.admin-panel{
+  font-size: 20px;
+  position: absolute;
+  left: 1%;
+  top: 15px;
+}

@@ -17,13 +17,7 @@
                             
                             <form method="POST" action="doner-form.php">
                                 <div class="row">
-                                    <div class=" col-sm-4">
-                                        <select>
-                                            <option> Donate Organ</option>
-                                            <option> Donate Blood</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-12">
                                         <input type="search" placeholder="Enter Donate Organ Or Blood Type" name="search-d" />
                                     </div>
                                     <div class="col-12">
