@@ -18,7 +18,7 @@
                             <form method="POST" action="doner-form.php">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <input type="search" placeholder="Enter Donate Organ Or Blood Type" name="search-d" />
+                                        <input type="search" placeholder="Enter Donate Organ Or Blood Type" name="search-d" required/>
                                     </div>
                                     <div class="col-12">
                                         <button type="submit" class="btn" name="search-doner">Search</button>
@@ -36,7 +36,8 @@
     <li data-target="#demo" data-slide-to="1"></li>
     <li data-target="#demo" data-slide-to="2"></li>
   </ul>
-  
+
+
   <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active">

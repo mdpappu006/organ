@@ -39,20 +39,20 @@
 
 	if(isset($_POST['search-doner'])){
 		$doner = $_POST['search-d'];
-		$query = "SELECT id, firstname, phone, adress , blood_donate, organs_donate FROM  become_donor WHERE blood_donate LIKE '%$doner%' OR organs_donate LIKE '%$doner%'";
+		$query = "SELECT id, firstname, phone, adress , blood_group, organs_donate FROM  become_donor WHERE blood_group LIKE '%$doner%' OR organs_donate LIKE '%$doner%'";
 		$result= mysqli_query($connect, $query);
 
 foreach($result as $data)
 {				
 
 ?>	
-	<?php if($data['blood_donate'] == $doner): ?>						
+	<?php if($data['blood_group'] == $doner): ?>						
 										<tr>
 											<td> <?php echo $data['id']?></td>
 											<td> <?php echo $data['firstname']?></td>
 											<td> <?php echo $data['phone']?></td>
 											<td> <?php echo $data['adress']?></td>
-											<td> <?php echo $data['blood_donate']?></td>
+											<td> <?php echo $data['blood_group']?></td>
 										</tr>
 	<?php endif; ?>	
 

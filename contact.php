@@ -2,6 +2,23 @@
     <?php 
         include_once('header/header.php') ;
         include_once('backend/contact.php');
+
+    if(isset($_POST['contact-form'])){
+        $fname = trim($_POST['fname']);
+        $lname = trim($_POST['lname']);
+        $phone = trim($_POST['phone']);
+        $messages = strval($_POST['messages']);
+        $query = "INSERT INTO contactus(fname,lname,phone,messages) values('$fname','$lname','$phone','$messages')";
+        $result= mysqli_query($connect, $query);
+        
+        $_SESSION['message'] = true;
+
+        if($_SESSION['message']){
+            header("location: contact.php");
+            exit;
+        }
+    }
+
     ?>
     <!-- /.navbar -->
 
@@ -33,6 +50,15 @@
                         </div>
                     </div>
                     <div class="col-md-6 align-self-center">
+                        <?php 
+                            if(isset($_SESSION['message'])):?>
+                            <p style="margin-bottom: 10px;color: green;">Message has been sent.</p>
+                        <?php 
+                            session_destroy();
+                            endif;
+
+                        ?>
+
                         <div class="contact-form">
                             <div class="bn-content-in">
                                 <form method="POST">
