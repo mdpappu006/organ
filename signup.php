@@ -6,10 +6,22 @@
 <!-- /.navbar -->
 <main class="main-wrap">
     <!--forms-->
-
-   <!-- <p> Regsitration Successful</p> -->
-   
     <div class="form-wrapper">
+    <?php 
+        if(isset($_SESSION['message'])): ?>
+        <p class="successReg">Registration has been successfully completed.</p>
+    <?php 
+        session_destroy();
+        endif;
+
+        if(isset($_SESSION['error'])):
+    ?>
+    <p class="errorReg"> Registration Failed!</p>
+    <?php 
+        session_destroy();
+        endif; 
+    ?>
+
         <div class="container">
             <div class="row ">
                 <div class="col-md-12">

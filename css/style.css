@@ -1369,3 +1369,15 @@ input.term-policy{
     top: -20px;
     width: 45%!important;
 }
+
+.errorReg{
+  margin-bottom: 10px;
+  color: red;
+  text-align: center;
+}
+
+.successReg{
+  margin-bottom: 10px;
+  color: green;
+  text-align: center;
+}
