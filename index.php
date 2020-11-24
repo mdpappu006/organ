@@ -79,7 +79,25 @@
                                     <img src="img/icon/facts1.png" alt=""/>
                                 </div>
                                 <div class="text">
-                                    <h4>1k</h4>
+
+<?php  
+    $query = "SELECT * FROM become_donor";
+    $result= mysqli_query($connect, $query);
+    $organ = 0;
+    $blood = 0;
+
+    foreach ($result as $data) {
+        if($data['organs_donate'] !== ''){
+            $organ += 1;
+        }
+
+        if($data['blood_donate'] !== ''){
+            $blood += 1;
+        }
+    }    
+?>
+
+                                    <h4><?php echo $organ;?></h4>
                                     <p>organ donor</p>
                                 </div>
                             </div>
@@ -90,7 +108,7 @@
                                     <img src="img/icon/facts1.png" alt=""/>
                                 </div>
                                 <div class="text">
-                                    <h4>1k</h4>
+                                    <h4><?php echo $blood;?></h4>
                                     <p>Blood donor</p>
                                 </div>
                             </div>
