@@ -9,13 +9,20 @@
         $phone = trim($_POST['phone']);
         $messages = strval($_POST['messages']);
         $query = "INSERT INTO contactus(fname,lname,phone,messages) values('$fname','$lname','$phone','$messages')";
-        $result= mysqli_query($connect, $query);
-        
-        $_SESSION['message'] = true;
+        $result = mysqli_query($connect, $query);
 
-        if($_SESSION['message']){
-            header("location: contact.php");
-            exit;
+        if($result){      
+            $_SESSION['message'] = true;
+            if($_SESSION['message']){
+                header("location: contact.php");
+                exit;
+            }
+        }else{
+            $_SESSION['error'] = true;
+            if($_SESSION['error']){
+                header("location: contact.php");
+                exit;
+            }
         }
     }
 
@@ -51,12 +58,18 @@
                     </div>
                     <div class="col-md-6 align-self-center">
                         <?php 
-                            if(isset($_SESSION['message'])):?>
+                            if(isset($_SESSION['message'])): ?>
                             <p style="margin-bottom: 10px;color: green;">Message has been sent.</p>
                         <?php 
                             session_destroy();
                             endif;
 
+                            if(isset($_SESSION['error'])):
+                        ?>
+                        <p style="margin-bottom: 10px;color: red;"> Message failed to send!</p>
+                        <?php 
+                            session_destroy();
+                            endif; 
                         ?>
 
                         <div class="contact-form">
