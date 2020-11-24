@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 23, 2020 at 03:06 PM
+-- Generation Time: Nov 24, 2020 at 10:48 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.4.0
 
@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `contactus` (
 --
 
 INSERT INTO `contactus` (`id`, `fname`, `lname`, `phone`, `messages`) VALUES
-(1, 'Nazmul', 'Hossain', 1775151041, 'your site needs to make more reliable :)');
+(1, 'John', 'Deo', 1775151041, 'Contact us Form ');
 
 -- --------------------------------------------------------
 
