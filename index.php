@@ -1,6 +1,29 @@
 
 	<!-- /.navbar -->
-    <?php include_once('header/header.php') ;?>
+    <?php include_once('header/header.php') ;
+
+        $query = "SELECT * FROM become_donor";
+        $result= mysqli_query($connect, $query);
+
+        $o = 0;
+        $b = 0;
+        foreach ($result as $data){
+            $blood = $data['blood_donate'];
+            $organ = $data['organs_donate'];
+
+            if($blood === '' || $blood === NULL){
+                $blood = 0;
+            }else{
+                $b += 1;
+            } 
+
+            if($organ === '' || $organ === NULL){
+                $organ = 0;
+            }else{
+                $o += 1;
+            }
+        }
+    ?>
     <!-- /.navbar -->
 
     <main class="main-wrap">
@@ -79,34 +102,6 @@
                                     <img src="img/icon/facts1.png" alt=""/>
                                 </div>
                                 <div class="text">
-
-<?php  
-    $query = "SELECT * FROM become_donor";
-    $result= mysqli_query($connect, $query);
-
-    $o = 0;
-    $b = 0;
-    foreach ($result as $data) {
-        $blood = $data['blood_donate'];
-        $organ = $data['organs_donate'];
-
-        if($blood === '' || $blood === NULL){
-            $blood = 0;
-        }else{
-            $b += 1;
-        } 
-        
-        if($organ === '' || $organ === NULL){
-            $organ = 0;
-        }else{
-            $o += 1;
-        }
-        
-    }
-    
-
-?>
-
                                     <h4><?php echo $o?></h4>
                                     <p>organ donor</p>
                                 </div>
