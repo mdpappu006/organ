@@ -8,6 +8,11 @@
         header("location: index.php");
         die();
     }
+
+    $query = "SELECT id,firstname, lastname, phone ,email, address FROM signup_user";
+    $result = mysqli_query($connect, $query);
+
+
 ?>
 <!-- /.navbar -->
 
@@ -41,27 +46,36 @@
                                     <div class="titles">
                                         <h4>Personal Details</h4>
                                     </div>
+
+<?php  
+
+    while ($data = mysqli_fetch_assoc($result)) {
+        $userid = $_SESSION['id'];
+        if($userid == $data['id']){
+
+
+?>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="text" placeholder="First Name" name="donorfname" />
+                                            <input type="text" name="donorfname" value="<?php echo $data['firstname'];?>" readonly/>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" placeholder="Last Name" name="donorlname" />
+                                            <input type="text" name="donorlname" value="<?php echo $data['lastname'];?>" readonly/>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" placeholder="Age" name="donorage" />
+                                            <input type="text" placeholder="Age" name="donorage" required/>
                                         </div>
                                               <div class="col-md-6">
-                                            <input type="email" placeholder="Email" name="donoremail" />
+                                            <input type="email" name="donoremail" value="<?php echo $data['email'];?>" readonly/>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" placeholder="Phone Number" name="donor-phone"/>
+                                            <input type="text" name="donor-phone" value="<?php echo $data['phone'];?>" readonly/>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" placeholder="Address" name="donor-address" />
+                                            <input type="text" name="donor-address" value="<?php echo $data['address'];?>" readonly/>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" placeholder="City" name="donor-city" />
+                                            <input type="text" placeholder="City" name="donor-city" required/>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="gender-area">
@@ -86,7 +100,7 @@
                                                 <div class="titles">
                                                     <h4>Your Blood Group</h4>
                                                 </div> 
-                                                <input type="text" placeholder="Enter Blood Group" name="donor-b-group" />
+                                                <input type="text" placeholder="Enter Blood Group" name="donor-b-group" required/>
                                             </div>                                            
                                         </div>
 
@@ -156,6 +170,11 @@
                                         </div>                                      
 
                                     </div>
+<?php } 
+    } 
+
+?>
+
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="titles">

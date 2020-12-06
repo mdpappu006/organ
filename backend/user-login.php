@@ -4,7 +4,7 @@
 		$email = trim($_POST['email']);
 		$userpass = $_POST['password'];
 		if($email && $userpass){
-			$query = "SELECT id,firstname ,email, pass FROM signup_user WHERE email ='{$email}'";
+			$query = "SELECT id, firstname ,email, pass FROM signup_user WHERE email ='{$email}'";
 			$result= mysqli_query($connect, $query);
 
 			if(mysqli_num_rows($result) > 0){
@@ -16,6 +16,7 @@
 					if($p == true){
 						$_SESSION['user'] = true;
 						$_SESSION['username'] = $Udata['firstname'];
+						$_SESSION['id'] = $Udata['id'];
 					}else{
 						$passError = true;
 					}

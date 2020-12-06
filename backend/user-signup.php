@@ -18,6 +18,7 @@
 		if($result){	
 			$_SESSION['user'] = true;
 			$_SESSION['username'] = $Udata['firstname'];
+			$_SESSION['id'] = $Udata['id'];
             header("location: index.php");
 			exit();
 		}else{

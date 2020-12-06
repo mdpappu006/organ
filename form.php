@@ -44,7 +44,7 @@
                                     <input type="text" placeholder="Required organ" name="organ" />
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Upload Prescription" name="prescription"/>
+                                    <input type="file" placeholder="Upload Prescription" name="prescription"/>
                                 </div>
                                 <div class="col-md-6">
                                     <input type="email" placeholder="Email" name="email" />

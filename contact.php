@@ -2,6 +2,11 @@
     <?php 
         include_once('header/header.php') ;
         include_once('backend/contact.php');
+
+        $id = $_SESSION['user'] ?? 0;
+
+        $query = "SELECT id,firstname, lastname, phone ,email, address FROM signup_user";
+        $result = mysqli_query($connect, $query);
     ?>
     <!-- /.navbar -->
 
@@ -33,32 +38,85 @@
                         </div>
                     </div>
                     <div class="col-md-6 align-self-center">
+                        
                         <?php 
-                            if(isset($_SESSION['message'])): ?>
-                            <p style="margin-bottom: 10px;color: green;">Message has been sent.</p>
-                        <?php 
-                            session_destroy();
-                            endif;
+                            if(isset($_SESSION['message'])): 
+                        ?>     
+                        <p class="Smessage" style="margin-bottom: 10px;color: green;">Message has been sent.</p>
+                        
+                        <?php
+                            unset($_SESSION["message"]);
+                            endif;   
 
                             if(isset($_SESSION['error'])):
                         ?>
-                        <p style="margin-bottom: 10px;color: red;"> Message failed to send!</p>
+                            <p style="margin-bottom: 10px;color: red;"> Message failed to send!</p>
                         <?php 
-                            session_destroy();
+                            unset($_SESSION["error"]);
                             endif; 
                         ?>
 
-                        <div class="contact-form">
-                            <div class="bn-content-in">
-                                <form method="POST">
-                                    <input placeholder="First Name" name="fname" required>
-                                    <input placeholder="Last Name" name="lname" required>
-                                    <input placeholder="Phone Number" name="phone" required>
-                                    <textarea rows="5" placeholder="Your Message" name="messages" required></textarea>
-                                    <button type="submit" class="btn" name="contact-form">Send Message</button>
-                                </form>
-                            </div>
+                        <?php
+                            if(!$id){ 
+                                if(isset($_SESSION['message'])): ?>
+                                <p class="success" style="margin-bottom: 10px;color: green;">Message has been sent.</p>
+                        <?php 
+                            session_destroy();
+                                endif;
+
+                            if(isset($_SESSION['error'])):
+                        ?>
+                                <p style="margin-bottom: 10px;color: red;"> Message failed to send!</p>
+                        <?php 
+                            session_destroy();
+                                 endif; 
+                            }
+                        ?>
+
+<?php  
+
+if($id):
+while ($data = mysqli_fetch_assoc($result)) {
+        $userid = $_SESSION['id'];
+        if($userid == $data['id']){
+
+
+?>
+
+                    <div class="contact-form usercontact-form">
+                        <div class="bn-content-in">
+                            <form method="POST">
+                                <input name="fname" value="<?php echo $data['firstname'];?>" readonly>
+                                <input name="lname"  value="<?php echo $data['lastname'];?>"  readonly>
+                                <input name="phone" value="<?php echo $data['phone'];?>" readonly>
+                                <textarea rows="5" class="Umessages" placeholder="Your Message" name="messages" required></textarea>
+                                <button type="submit" class="btn sendm" name="contact-form">Send Message</button>
+                            </form>
                         </div>
+                    </div>
+
+<?php }
+} 
+endif;
+
+
+if(!$id):
+
+?>
+                    <div class="contact-form">
+                        <div class="bn-content-in">
+                            <form method="POST">
+                                <input name="fname" placeholder="First Name" required>
+                                <input placeholder="Last Name" name="lname" required>
+                                <input name="phone" placeholder="Phone" required>
+                                <textarea rows="5" placeholder="Your Message" name="messages" required></textarea>
+                                <button type="submit" class="btn" name="contact-form">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+<?php endif;?>
+
+
                     </div>
                 </div>
             </div><!--/.container-->
