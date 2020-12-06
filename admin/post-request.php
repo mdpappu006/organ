@@ -5,6 +5,7 @@
         header("location: index.php");
         die();
     }
+    ob_start();
  ?>
 
 <!doctype html>
@@ -135,7 +136,7 @@ if(isset($_REQUEST['eid'])){
 	$Result =mysqli_query($connect, $query);
 	header("location: post-request.php");
 }
-	$id = $data['id'];
+$id = $data['id'];
 if(isset($_REQUEST['aeid'])){
 	
 	$aeid=$_GET['aeid'];
