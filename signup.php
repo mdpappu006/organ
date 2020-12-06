@@ -7,13 +7,8 @@
 <main class="main-wrap">
     <!--forms-->
     <div class="form-wrapper">
-    <?php 
-        if(isset($_SESSION['message'])): ?>
-        <p class="successReg">Registration has been successfully completed.</p>
-    <?php 
-        session_destroy();
-        endif;
 
+    <?php 
         if(isset($_SESSION['error'])):
     ?>
     <p class="errorReg"> Registration Failed!</p>
@@ -54,13 +49,13 @@
                                     <input type="text" placeholder="Address" name="address" required/>
                                 </div>
 
-                            	<div class="col-md-12 label-btn">
+<!--                             	<div class="col-md-12 label-btn">
                                 	<input type="radio" placeholder="Blood" id="blood" class="radio-btn" name="donation" value="blood" checked/>
                                 	<label for="blood" class="pr-3">Blood</label>
 
                                 	<input type="radio" placeholder="Organ" id="organ" class="radio-btn" name="donation" value="organ"/>
                                 	<label for="organ">Organ</label>
-                            	</div>
+                            	</div> -->
 
                                 <div class="col-md-12">
                                     <button type="submit" class="btn" name="signup">Signup</button>
