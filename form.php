@@ -7,16 +7,34 @@
             header("location: index.php");
             die();
         }
+
     ?>
     <!-- /.navbar -->
 <main class="main-wrap">
     <!--forms-->
     <div class="form-wrapper">
+        <?php 
+            if(isset($_SESSION['post_req'])): 
+        ?>  
+    	<p style="margin-bottom: 10px;color: green;text-align: center;">Your Post Request successfully submitted.</p>
+        <?php
+        unset($_SESSION["post_req"]);
+        endif;  ?>        
+
+        <?php 
+            if(isset($_SESSION['post_error'])): 
+        ?>  
+        <p style="margin-bottom: 10px;color: red;text-align: center;"> Post failed to send!</p>
+        <?php
+            unset($_SESSION["post_error"]);
+            endif; 
+        ?>
+
         <div class="container">
             <div class="row ">
                 <div class="col-md-12">
                     <div class="form-inside-all">
-                        <form method="POST">
+                        <form method="POST" enctype="multipart/form-data">
                             <div class="titles">
                                 <h4>Post Request For</h4>
                             </div>
@@ -41,13 +59,13 @@
                                     <input type="number" placeholder="Contact No" name="phone" required/>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Required organ" name="organ" />
+                                    <input type="text" placeholder="Required organ" name="organ" required/>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="file" placeholder="Upload Prescription" name="prescription"/>
+                                    <input type="file" placeholder="Upload Prescription" name="uploadFile"/>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" placeholder="Email" name="email" />
+                                    <input type="email" placeholder="Email" name="email" required/>
                                 </div>
                                 <div class="col-md-12">
                                     <button type="submit" class="btn" name="postRequest">Send</button>
