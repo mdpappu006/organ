@@ -15,6 +15,7 @@
 						$p = password_verify($_password, $userpass);
 						if($p == true){
 							$_SESSION['userid'] = $data['id'];
+							$_SESSION['email'] = $data['email'];
 							header("location: ./dashboard.php");
 							die();
 						}else{
