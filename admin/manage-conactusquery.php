@@ -5,7 +5,6 @@
         header("location: index.php");
         die();
     }
-
     $query = "SELECT * FROM contactus";
     $result = mysqli_query($connect, $query);
  ?>
