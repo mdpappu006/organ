@@ -3,7 +3,7 @@
         $fname = trim($_POST['fname']);
         $lname = trim($_POST['lname']);
         $phone = trim($_POST['phone']);
-        $messages = strval($_POST['messages']);
+        $messages = filter_input(INPUT_POST, 'messages' ,FILTER_SANITIZE_STRING);
         $query = "INSERT INTO contactus(fname,lname,phone,messages) values('$fname','$lname','$phone','$messages')";
         $result = mysqli_query($connect, $query);
 

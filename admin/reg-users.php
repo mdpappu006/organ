@@ -83,6 +83,7 @@
 											<th>Contact no</th>
 											<th>Address</th>
 											<th>Donate</th>
+											<th>Action</th>
 										</tr>
 									</thead>
 									<tfoot>
@@ -93,6 +94,7 @@
 											<th>Contact no</th>
 											<th>Address</th>
 											<th>Donate</th>
+											<th>Action</th>
 										</tr>
 									</tfoot>
 									<tbody>
@@ -101,9 +103,17 @@
     $query = "SELECT * FROM signup_user";
 	$result= mysqli_query($connect, $query);
 
-foreach($result as $data)
-{				
 
+
+foreach($result as $data){				
+
+$id = $data['id'];
+if(isset($_REQUEST['eid'])){
+	$eid=$_GET['eid'];
+	$query = "DELETE from signup_user WHERE id=$eid";
+	$Result =mysqli_query($connect, $query);
+	header("location: reg-users.php");
+}
 ?>	
 
 										<tr>
@@ -113,10 +123,9 @@ foreach($result as $data)
 											<td><?php echo $data['phone']?></td>
 											<td><?php echo $data['address']?></td>
 											<td><?php echo $data['donate_user']?></td>
+											<td><a href="reg-users.php?eid=<?php echo $id?>">Delete</a></td>
 										</tr>
 <?php }?>
-										
-
 									</tbody>
 								</table>
 							</div>

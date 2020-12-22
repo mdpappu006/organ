@@ -88,6 +88,7 @@
 											<th>Your Blood Group</th>
 											<th>Blood Donate</th>
 											<th>Organs Donate</th>
+											<th>Action</th>
 											
 										</tr>
 									</thead>
@@ -104,6 +105,7 @@
 											<th>Your Blood Group</th>
 											<th>Blood Donate</th>
 											<th>Organs Donate</th>
+											<th>Action</th>
 											
 										</tr>
 									</tfoot>
@@ -116,6 +118,15 @@
 
 foreach($result as $data)
 {				
+
+
+$id = $data['id'];
+if(isset($_REQUEST['eid'])){
+	$eid=$_GET['eid'];
+	$query = "DELETE from become_donor WHERE id=$eid";
+	$Result =mysqli_query($connect, $query);
+	header("location: doner-list.php");
+}
 
 ?>	
 
@@ -131,6 +142,7 @@ foreach($result as $data)
 											<td><?php echo $data['blood_group']?></td>
 											<td><?php echo $data['blood_donate']?></td>
 											<td><?php echo $data['organs_donate']?></td>
+											<td><a href="doner-list.php?eid=<?php echo $id?>">Delete</a></td>
 										</tr>
 <?php }?>
 

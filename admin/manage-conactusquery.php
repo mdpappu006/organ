@@ -85,15 +85,27 @@
 											<th>Name</th>
 											<th>Phone</th>
 											<th>Message</th>
+											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody>
-									<?php foreach ($result as $data): ?>
+									<?php foreach ($result as $data): 
+
+$id = $data['id'];
+if(isset($_REQUEST['eid'])){
+	$eid=$_GET['eid'];
+	$query = "DELETE from contactus WHERE id=$eid";
+	$Result =mysqli_query($connect, $query);
+	header("location: manage-conactusquery.php");
+}
+									?>
+
 										<tr>
 											<td><?php echo $data['id'];?></td>
 											<td><?php echo $data['fname']. " ".$data['lname'];?></td>
 											<td><?php echo $data['phone'];?></td>
 											<td><?php echo $data['messages'];?></td>
+											<td><a href="manage-conactusquery.php?eid=<?php echo $id?>">Delete</a></td>
 										</tr>
 									<?php endforeach;?>	
 									</tbody>
@@ -103,6 +115,7 @@
 											<th>Name</th>
 											<th>Phone</th>
 											<th>Message</th>
+											<th>Action</th>
 										</tr>
 									</tfoot>
 

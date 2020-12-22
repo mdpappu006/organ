@@ -108,7 +108,7 @@ if(!$id):
                             <form method="POST">
                                 <input name="fname" placeholder="First Name" required>
                                 <input placeholder="Last Name" name="lname" required>
-                                <input name="phone" placeholder="Phone" required>
+                                <input name="phone" placeholder="Phone" type="number" required>
                                 <textarea rows="5" placeholder="Your Message" name="messages" required></textarea>
                                 <button type="submit" class="btn" name="contact-form">Send Message</button>
                             </form>
