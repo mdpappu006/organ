@@ -24,7 +24,19 @@
 
 		$insert = "INSERT INTO become_donor(firstname, lastname, age, email, phone, adress, city, gender, e_name, e_relationship, e_phone, e_email, e_address, blood_group, blood_donate, organs_donate) values('$fname', '$lname', '$age', '$email', '$donerPhone', '$donerAddress', '$donerCity', '$donerGender', '$e_name', '$eRelationship', '$ephone', '$eEmail', '$eaddress', '$bloodGroup', '$donorBlood', '$organs')";
 		$result = mysqli_query($connect, $insert);
-		$_SESSION['create_donor'] = true;
-		header("location: doner.php");
+		
+        if($result){      
+            $_SESSION['create_donor'] = true;
+            if($_SESSION['create_donor']){
+                header("location: doner.php");
+                exit;
+            }
+        }else{
+            $_SESSION['create_donor'] = true;
+            if($_SESSION['create_donor']){
+                header("location: doner.php");
+                exit;
+            }
+        }
 	}
 ?>	

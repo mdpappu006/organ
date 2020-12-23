@@ -63,6 +63,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <input type="file" placeholder="Upload Prescription" name="uploadFile"/>
+                                    <label class="up-pre">*Upload Prescription</label>
                                 </div>
                                 <div class="col-md-6">
                                     <input type="email" placeholder="Email" name="email" required/>

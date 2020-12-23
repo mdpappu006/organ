@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 07, 2020 at 03:50 PM
+-- Generation Time: Dec 23, 2020 at 07:18 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.4.0
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 --
 
 INSERT INTO `admin` (`id`, `email`, `password`) VALUES
-(1, 'admin@gmail.com', 'admin');
+(1, 'admin@gmail.com', '12345');
 
 -- --------------------------------------------------------
 
@@ -70,15 +70,7 @@ CREATE TABLE IF NOT EXISTS `become_donor` (
   `blood_donate` varchar(100) DEFAULT NULL,
   `organs_donate` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `become_donor`
---
-
-INSERT INTO `become_donor` (`id`, `firstname`, `lastname`, `age`, `email`, `phone`, `adress`, `city`, `gender`, `e_name`, `e_relationship`, `e_phone`, `e_email`, `e_address`, `blood_group`, `blood_donate`, `organs_donate`) VALUES
-(1, 'Nazmul', 'Hossain', 25, 'mdpappu006@gmail.com', '01840488752', 'West Akur Takur Para, Tangail', 'Tangail', 'Male', 'Ruth', 'Friend', '01775151041', 'mdpappu006@gmail.com', 'Dhaka', 'B+', 'blood', ''),
-(2, 'User', '2', 25, 'user2@gmail.com', '01775151041', 'Dhaka, Bangladesh', 'Tangail', 'Male', 'Mr X', 'Friend', '01775151010', 'user2@gmail.com', 'Dhaka', 'O+', '', 'eyes');
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -94,16 +86,7 @@ CREATE TABLE IF NOT EXISTS `contactus` (
   `phone` varchar(15) DEFAULT NULL,
   `messages` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `contactus`
---
-
-INSERT INTO `contactus` (`id`, `fname`, `lname`, `phone`, `messages`) VALUES
-(1, 'Nazmul', 'Hossain', '01775151041', 'Our Test Data'),
-(2, 'Anoymous', 'User', '01546464646', 'Test Data again'),
-(3, 'Anonymous', '2', '01840488752', 'Testing...');
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -123,14 +106,7 @@ CREATE TABLE IF NOT EXISTS `post_request` (
   `donate_user` varchar(100) NOT NULL,
   `action` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `post_request`
---
-
-INSERT INTO `post_request` (`id`, `patientName`, `address`, `phone`, `requiredorgan`, `prescription`, `email`, `donate_user`, `action`) VALUES
-(1, 'Nazmul', 'West Akur Takur Para, Tangail', '01775151041', 'Blood', 'f5fce4bcfe746a8.99868915.jpg', 'nazmul@gmail.com', 'blood', 1);
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -150,14 +126,7 @@ CREATE TABLE IF NOT EXISTS `signup_user` (
   `donate_user` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `signup_user`
---
-
-INSERT INTO `signup_user` (`id`, `firstname`, `lastname`, `phone`, `email`, `pass`, `address`, `donate_user`) VALUES
-(1, 'Nazmul', 'Hossain', '01775151041', 'mdpappu006@gmail.com', '$2y$10$HaTzUaNfLJ4xdz8EHIMut.umFu79euvCEK4kGW52TyIOdcQIqNy.u', 'West Akur Takur Para, Tangail', NULL);
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

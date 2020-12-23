@@ -34,6 +34,18 @@
     </section>
     <!--banner-->
 
+   <?php 
+        if(isset( $_SESSION['create_donor'])): 
+    ?>     
+    <p class="create_donor">Donar has been Created Successfully.</p>
+    
+    <?php
+        unset( $_SESSION['create_donor']);
+        endif;   
+    ?>
+
+
+
     <!--forms-->
     <div class="donor-form-wrapper">
         <div class="container">
