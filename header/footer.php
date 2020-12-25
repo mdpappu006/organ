@@ -30,13 +30,10 @@
                         <li>
                             <a href="#">About Us</a>
                         </li>
-                        <li>
-                            <a href="#">Donor List</a>
+                        <?php if(!isset($_SESSION['user'])): ?> 
+                         <li>
+                            <a href="./admin/doctor-login.php">Doctor Login</a>
                         </li>
-                        <li>
-                            <a href="#">Donate</a>
-                        </li>
-                        <?php if(!isset($_SESSION['user'])): ?>
                          <li>
                             <a href="./admin/">Admin Login</a>
                         </li>

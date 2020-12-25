@@ -756,3 +756,7 @@ li {
 .urprescription{
   width: 150px;
 }
+
+.mb-2{
+    margin-bottom: 10px!important;
+}

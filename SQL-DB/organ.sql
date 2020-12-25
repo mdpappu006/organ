@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Dec 23, 2020 at 07:18 AM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.4.0
+-- Host: 127.0.0.1:3307
+-- Generation Time: Dec 25, 2020 at 07:25 PM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,6 +20,24 @@ SET time_zone = "+00:00";
 --
 -- Database: `organ`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `add_doctor`
+--
+
+DROP TABLE IF EXISTS `add_doctor`;
+CREATE TABLE IF NOT EXISTS `add_doctor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fastName` varchar(50) NOT NULL,
+  `Lastname` varchar(50) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `designation` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -42,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 --
 
 INSERT INTO `admin` (`id`, `email`, `password`) VALUES
-(1, 'admin@gmail.com', '12345');
+(1, 'admin@gmail.com', 'admin');
 
 -- --------------------------------------------------------
 
