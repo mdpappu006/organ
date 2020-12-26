@@ -111,8 +111,13 @@ if(!$id){
 					<input type="number" class="form-control" name="phone" required>
 				</div>	
 			</div>
-			
+
 			<div class="form-group">
+				<div class="col-sm-4">
+					<label class="control-label mb-2">Address</label>
+					<input type="text" class="form-control" name="address" required>
+				</div>	
+
 				<div class="col-sm-4">
 					<label class="control-label mb-2">Email</label>
 					<input type="email" class="form-control" name="email" required>
@@ -120,9 +125,11 @@ if(!$id){
 
 				<div class="col-sm-4">
 					<label class="control-label mb-2">Password</label>
-					<input type="Password" class="form-control" name="password" required>
-				</div>	
-
+					<input type="text" class="form-control" name="password" required>
+				</div>
+			</div>
+			
+			<div class="form-group">
 				<div class="col-sm-4">
 					<label class="control-label mb-2">Designation</label>
 					<input type="text" class="form-control" name="designation" required>

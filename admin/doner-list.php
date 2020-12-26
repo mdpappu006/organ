@@ -68,7 +68,7 @@
 				<div class="row">
 					<div class="col-md-12">
 
-						<h2 class="page-title">Post Request</h2>
+						<h2 class="page-title">Doner List</h2>
 
 						<!-- Zero Configuration Table -->
 						<div class="panel panel-default">

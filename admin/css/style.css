@@ -760,3 +760,13 @@ li {
 .mb-2{
     margin-bottom: 10px!important;
 }
+
+.verify{
+  color: green;
+  font-weight: 500;
+}
+
+.unverify{
+  color: red;
+  font-weight: 500;
+}

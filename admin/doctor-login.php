@@ -1,5 +1,5 @@
 <?php
-    require_once "backend/admin-login.php";
+    require_once "backend/doctor-login.php";
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -70,7 +70,7 @@
                 
                             
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn" name="adminLogin">Login</button>
+                                    <button type="submit" class="btn" name="doctorLogin">Login</button>
                                 </div>
 
                             </div>
@@ -84,7 +84,7 @@
 </main>
 
 <?php  }else{
-    header("location: ../index.php");
+    header("location: ../doctor-login.php");
 }
 ?> 
     

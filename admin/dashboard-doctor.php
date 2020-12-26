@@ -1,6 +1,6 @@
 <?php
 	require_once("../backend/db.php"); 
-    // $id = $_SESSION['userid'] ?? 0;
+    $id = $_SESSION['userid'] ?? 0;
     $query = "SELECT * FROM signup_user";
 	$result= mysqli_query($connect, $query);
 	$totalUser = mysqli_num_rows($result);    
@@ -10,18 +10,11 @@
 	$Postresult= mysqli_query($connect, $Postquery);
 	$PosttotalUser = mysqli_num_rows($Postresult);
 	// End Post Request Query 
-	
 
-	// Doner list Query 
-	$donerquery = "SELECT * FROM become_donor";
-	$donerresult= mysqli_query($connect, $donerquery);
-	$donertotalUser = mysqli_num_rows($donerresult);
-	// End Doner list Query 
-
-    // if(!$id){
-    //     header("location: index.php");
-    //     die();
-    // }
+    if(!$id){
+        header("location: doctor-login.php");
+        die();
+    }
 ?>
 
 <!doctype html>
@@ -56,7 +49,7 @@
 </head>
 
 <body>
-<?php include('includes/header.php');?>
+<?php include('includes/doctor-header.php');?>
 
 	<div class="ts-main-content">
 <?php include('includes/leftbar-doctor.php');?>
@@ -69,23 +62,7 @@
 						<h2 class="page-title">Doctor Dashboard</h2>
 						
 						<div class="row">
-							<div class="col-md-12">
-								<div class="row">
-									<div class="col-md-3">
-										<div class="panel panel-default">
-											<div class="panel-body bk-primary text-light">
-												<div class="stat-panel text-center">
-
-													<div class="stat-panel-number h1"> 
-														<?php  echo $totalUser;?>
-													</div>
-													<div class="stat-panel-title text-uppercase">Reg Users</div>
-												</div>
-											</div>
-											<a href="reg-users.php" class="block-anchor panel-footer">Full Detail <i class="fa fa-arrow-right"></i></a>
-										</div>
-									</div>									
-
+							<div class="col-md-12">								
 									<div class="col-md-3">
 										<div class="panel panel-default">
 											<div class="panel-body bk-primary text-light">
@@ -97,22 +74,7 @@
 													<div class="stat-panel-title text-uppercase">Post Request</div>
 												</div>
 											</div>
-											<a href="post-request.php" class="block-anchor panel-footer">Full Detail <i class="fa fa-arrow-right"></i></a>
-										</div>
-									</div>
-
-									<div class="col-md-3">
-										<div class="panel panel-default">
-											<div class="panel-body bk-primary text-light">
-												<div class="stat-panel text-center">
-
-													<div class="stat-panel-number h1"> 
-														<?php  echo $donertotalUser;?>
-													</div>
-													<div class="stat-panel-title text-uppercase">Doner List</div>
-												</div>
-											</div>
-											<a href="doner-list.php" class="block-anchor panel-footer">Full Detail <i class="fa fa-arrow-right"></i></a>
+											<a href="doctor-post-request.php" class="block-anchor panel-footer">Full Detail <i class="fa fa-arrow-right"></i></a>
 										</div>
 									</div>
 
@@ -121,8 +83,6 @@
 						</div>
 					</div>
 				</div>
-
-
 			</div>
 		</div>
 	</div>

@@ -1,10 +1,10 @@
 <?php
 	require_once("../backend/db.php"); 
-    // $id = $_SESSION['userid'] ?? 0;
-	// if(!$id){
- //        header("location: index.php");
- //        die();
- //    }
+    $id = $_SESSION['userid'] ?? 0;
+	if(!$id){
+        header("location: doctor-login.php");
+        die();
+    }
     ob_start();
  ?>
 
@@ -134,7 +134,7 @@ if(isset($_REQUEST['eid'])){
 	$status="0";
 	$query = "UPDATE post_request SET action=$status WHERE id=$eid";
 	$Result =mysqli_query($connect, $query);
-	header("location: post-request.php");
+	header("location: doctor-post-request.php");
 }
 $id = $data['id'];
 if(isset($_REQUEST['aeid'])){
@@ -143,13 +143,13 @@ if(isset($_REQUEST['aeid'])){
 	$status=1;
 	$query = "UPDATE post_request SET action=$status WHERE id=$aeid";
 	$Result =mysqli_query($connect, $query);
-	header("location: post-request.php");
+	header("location: doctor-post-request.php");
 }
 								
 											if($data['action'] == 1):
-											?>	<a href="post-request.php?eid=<?php echo $id?>">Active</a> 
+											?>	<a href="doctor-post-request.php?eid=<?php echo $id?>">Active</a> 
 											<?php else:?>
-											 <a href="post-request.php?aeid=<?php echo $id?>">Inactive</a></td>
+											 <a href="doctor-post-request.php?aeid=<?php echo $id?>">Inactive</a></td>
 											<?php endif;?>
 										</tr>
 <?php }?>

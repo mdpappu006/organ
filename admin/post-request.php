@@ -86,7 +86,7 @@
 											<th>Prescription</th>
 											<th>Email</th>
 											<th>Request For</th>
-											<th>Action</th>
+											<th>Verification Status</th>
 										</tr>
 									</thead>
 									<tfoot>
@@ -99,7 +99,7 @@
 											<th>Prescription</th>
 											<th>Email</th>
 											<th>Request For</th>
-											<th>Action</th>
+											<th>Verification Status</th>
 										</tr>
 									</tfoot>
 									<tbody>
@@ -120,7 +120,7 @@ foreach($result as $data)
 											<td><?php echo $data['address']?></td>
 											<td><?php echo $data['phone']?></td>
 											<td><?php echo $data['requiredorgan']?></td>
-											<td><img class='urprescription' src="../prescription_photo/<? echo $data['prescription']?>" alt=""></td>
+											<td><a target="_blank" href="../prescription_photo/<? echo $data['prescription']?>"><img class='urprescription' src="../prescription_photo/<? echo $data['prescription']?>" alt=""></a></td>
 											<td><?php echo $data['email']?></td>
 											<td><?php echo $data['donate_user']?></td>
 											<td> 
@@ -147,9 +147,9 @@ if(isset($_REQUEST['aeid'])){
 }
 								
 											if($data['action'] == 1):
-											?>	<a href="post-request.php?eid=<?php echo $id?>">Active</a> 
+											?>	<p class="verify">Verified</p>
 											<?php else:?>
-											 <a href="post-request.php?aeid=<?php echo $id?>">Inactive</a></td>
+											 <p class="unverify">Unverified</p></td>
 											<?php endif;?>
 										</tr>
 <?php }?>
@@ -158,8 +158,6 @@ if(isset($_REQUEST['aeid'])){
 								</table>
 							</div>
 						</div>
-
-					
 
 					</div>
 				</div>
