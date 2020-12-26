@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3307
--- Generation Time: Dec 25, 2020 at 07:25 PM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.3.21
+-- Host: 127.0.0.1:3306
+-- Generation Time: Dec 26, 2020 at 10:14 AM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.4.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -33,11 +34,19 @@ CREATE TABLE IF NOT EXISTS `add_doctor` (
   `fastName` varchar(50) NOT NULL,
   `Lastname` varchar(50) NOT NULL,
   `phone` varchar(50) NOT NULL,
+  `address` varchar(100) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `designation` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `add_doctor`
+--
+
+INSERT INTO `add_doctor` (`id`, `fastName`, `Lastname`, `phone`, `address`, `email`, `password`, `designation`) VALUES
+(1, 'doyal', 'islan', '16456464', 'West Akur Takur Para', 'doyal@gmail.com', 'doyal', 'MBBS');
 
 -- --------------------------------------------------------
 
@@ -123,7 +132,14 @@ CREATE TABLE IF NOT EXISTS `post_request` (
   `donate_user` varchar(100) NOT NULL,
   `action` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `post_request`
+--
+
+INSERT INTO `post_request` (`id`, `patientName`, `address`, `phone`, `requiredorgan`, `prescription`, `email`, `donate_user`, `action`) VALUES
+(1, 'Ruth', 'Dhaka', '017754646', 'eye', 'f5fe704076a3807.96236429.png', 'ruth@gmail.com', 'organ', 1);
 
 -- --------------------------------------------------------
 
@@ -143,7 +159,14 @@ CREATE TABLE IF NOT EXISTS `signup_user` (
   `donate_user` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `signup_user`
+--
+
+INSERT INTO `signup_user` (`id`, `firstname`, `lastname`, `phone`, `email`, `pass`, `address`, `donate_user`) VALUES
+(1, 'Nazmul', 'Hossain', '01775151041', 'mdpappu006@gmail.com', '$2y$10$t5n541.cH/HOGyhtteTK1eV/Ifnj.1kYsyWUAkGyR3rZ8Y5d1M6Qm', 'West Akur Takur Para, Tangail', NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -113,7 +113,6 @@ foreach($result as $data)
 {				
 
 ?>	
-
 										<tr>
 											<td> <?php echo $data['id']?></td>
 											<td><?php echo $data['patientName']?></td>
