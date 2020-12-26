@@ -1,34 +1,14 @@
 <?php
-session_start();
 error_reporting(0);
 require_once("../backend/db.php");
-if(strlen($_SESSION['email'])==0)
-	{	
-header('location:index.php');
-}
-else{
-// Code for change password	
-if(isset($_POST['submit'])){
-	$password=$_POST['password'];
-	$newpassword=$_POST['newpassword'];
-	$username=$_SESSION['email'];
-	$sql ="SELECT password FROM admin WHERE email='$username' and password='$password'";
-	$query= mysqli_query($connect, $sql);
-	$results = mysqli_fetch_assoc($query);
+$id = $_SESSION['userid'] ?? 0;
+include_once("backend/add-doctor.php");
 
-	if(mysqli_num_rows($query) > 0){
-		$con="update admin set password='$newpassword' where email='$username'";
-		$query= mysqli_query($connect, $con);
-		$_SESSION['msg'] = true;
-		if($_SESSION['msg']){	
-			header('location: change-password.php');
-			exit;
-		}
-	}
-	else {
-		$error="Your current password is not valid.";	
-	}
+if(!$id){
+    header("location: index.php");
+    die();
 }
+
 ?>
 
 <!doctype html>
@@ -101,7 +81,20 @@ if(isset($_POST['submit'])){
 									<div class="panel-heading">Form fields</div>
 									<div class="panel-body">
 
-		<form method="post" name="chngpwd" class="form-horizontal">
+		<form method="post" class="form-horizontal">
+
+  	        	  <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php }?>
+
+  	        	   <?php 
+                        if(isset($_SESSION['msg'])): 
+                    ?>     
+                        <div class="succWrap"><strong>SUCCESS</strong>:<?php echo "Doctor Added Successfully.";?> </div>
+                    
+                    <?php
+                        unset($_SESSION["msg"]);
+                        endif;
+                    ?>
+
 			<div class="form-group">
 				<div class="col-sm-4">
 					<label class="control-label mb-2">First Name</label>
@@ -115,7 +108,7 @@ if(isset($_POST['submit'])){
 
 				<div class="col-sm-4">
 					<label class="control-label mb-2">Phone Number</label>
-					<input type="number" class="form-control" name="phnoe" required>
+					<input type="number" class="form-control" name="phone" required>
 				</div>	
 			</div>
 			
@@ -127,19 +120,19 @@ if(isset($_POST['submit'])){
 
 				<div class="col-sm-4">
 					<label class="control-label mb-2">Password</label>
-					<input type="Password" class="form-control" name="Password" required>
+					<input type="Password" class="form-control" name="password" required>
 				</div>	
 
 				<div class="col-sm-4">
 					<label class="control-label mb-2">Designation</label>
-					<input type="text" class="form-control" name="Designation" required>
+					<input type="text" class="form-control" name="designation" required>
 				</div>				
 			</div>
 			
 			<div class="form-group">
 				<div class="col-sm-12">
 
-					<button class="btn btn-primary" name="submit" type="submit">Add</button>
+					<button class="btn btn-primary" name="add-Doctor" type="submit">Add</button>
 				</div>
 			</div>
 
@@ -175,4 +168,3 @@ if(isset($_POST['submit'])){
 </body>
 
 </html>
-<?php } ?>
