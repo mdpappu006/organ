@@ -120,7 +120,7 @@ foreach($result as $data)
 											<td><?php echo $data['address']?></td>
 											<td><?php echo $data['phone']?></td>
 											<td><?php echo $data['requiredorgan']?></td>
-											<td><img class='urprescription' src="../prescription_photo/<? echo $data['prescription']?>" alt=""></td>
+											<td><a target="_blank" href="../prescription_photo/<? echo $data['prescription']?>"><img class='urprescription' src="../prescription_photo/<? echo $data['prescription']?>" alt=""></a></td>
 											<td><?php echo $data['email']?></td>
 											<td><?php echo $data['donate_user']?></td>
 											<td> 

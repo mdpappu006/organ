@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 26, 2020 at 10:14 AM
+-- Generation Time: Dec 27, 2020 at 04:40 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.4.0
 
@@ -132,14 +132,14 @@ CREATE TABLE IF NOT EXISTS `post_request` (
   `donate_user` varchar(100) NOT NULL,
   `action` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `post_request`
 --
 
 INSERT INTO `post_request` (`id`, `patientName`, `address`, `phone`, `requiredorgan`, `prescription`, `email`, `donate_user`, `action`) VALUES
-(1, 'Ruth', 'Dhaka', '017754646', 'eye', 'f5fe704076a3807.96236429.png', 'ruth@gmail.com', 'organ', 1);
+(2, 'Miss Ruth', 'Tangail', '01555545646', 'B+', 'f5fe80ee4367a13.03511788.jpg', 'ruth@gmail.com', 'blood', 1);
 
 -- --------------------------------------------------------
 
@@ -159,14 +159,14 @@ CREATE TABLE IF NOT EXISTS `signup_user` (
   `donate_user` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `signup_user`
 --
 
 INSERT INTO `signup_user` (`id`, `firstname`, `lastname`, `phone`, `email`, `pass`, `address`, `donate_user`) VALUES
-(1, 'Nazmul', 'Hossain', '01775151041', 'mdpappu006@gmail.com', '$2y$10$t5n541.cH/HOGyhtteTK1eV/Ifnj.1kYsyWUAkGyR3rZ8Y5d1M6Qm', 'West Akur Takur Para, Tangail', NULL);
+(2, 'Nazmul', 'Hossain', '01775151041', 'mdpappu006@gmail.com', '$2y$10$hZSO7LAY50ngITiUyvpylOxBPhXmwdAsBljaKof/W99rfUe3h26x.', 'West Akur Takur Para, Tangail', NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

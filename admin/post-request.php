@@ -87,6 +87,7 @@
 											<th>Email</th>
 											<th>Request For</th>
 											<th>Verification Status</th>
+											<th>Action</th>
 										</tr>
 									</thead>
 									<tfoot>
@@ -100,6 +101,7 @@
 											<th>Email</th>
 											<th>Request For</th>
 											<th>Verification Status</th>
+											<th>Action</th>
 										</tr>
 									</tfoot>
 									<tbody>
@@ -119,7 +121,7 @@ foreach($result as $data)
 											<td><?php echo $data['address']?></td>
 											<td><?php echo $data['phone']?></td>
 											<td><?php echo $data['requiredorgan']?></td>
-											<td><a target="_blank" href="../prescription_photo/<? echo $data['prescription']?>"><img class='urprescription' src="../prescription_photo/<? echo $data['prescription']?>" alt=""></a></td>
+											<td><img class='urprescription' src="../prescription_photo/<? echo $data['prescription']?>" alt=""></td>
 											<td><?php echo $data['email']?></td>
 											<td><?php echo $data['donate_user']?></td>
 											<td> 
@@ -144,12 +146,25 @@ if(isset($_REQUEST['aeid'])){
 	$Result =mysqli_query($connect, $query);
 	header("location: post-request.php");
 }
+
+$did = $data['id'];
+if(isset($_REQUEST['did'])){
+	$did=$_GET['did'];
+	$query = "DELETE from post_request WHERE id=$did";
+	$Result =mysqli_query($connect, $query);
+	header("location: post-request.php");
+}
+
+
+
 								
 											if($data['action'] == 1):
 											?>	<p class="verify">Verified</p>
 											<?php else:?>
 											 <p class="unverify">Unverified</p></td>
 											<?php endif;?>
+
+											<td><a href="post-request.php?did=<?php echo $did?>">Delete</a></td>
 										</tr>
 <?php }?>
 
