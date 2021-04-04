@@ -1413,3 +1413,54 @@ input.term-policy{
   top: -21px!important;
   left: 16px!important;
 }
+
+
+/* Login API CSS */
+
+.facebook{
+  margin: 0 auto;
+  border-radius: 5px;
+  background: #4267B2;
+  width: 100%;
+  position: relative;
+} 
+
+.google{
+  margin: 0 auto;
+  border-radius: 5px;
+  background: #4285F4;
+  width: 100%;
+  position: relative;
+}
+
+.fa-google, .fa-facebook{
+  position: absolute;
+  left: 15px;
+  top: 13px;
+  font-size: 22px;
+}
+
+.loginwith{
+  position: relative;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 25px;
+  font-size: 20px;
+}
+
+.or-left, .or-right{
+  width: 46%;
+  background: #ddd;
+  height: 1px;
+  position: absolute;
+  top: 13px;
+}
+
+
+.or-left{
+  left: 0;
+}
+
+.or-right{
+  right: 0;
+}

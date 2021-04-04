@@ -18,7 +18,7 @@
 						$_SESSION['username'] = $Udata['firstname'];
 						$_SESSION['id'] = $Udata['id'];
 					}else{
-						$passError = true;
+						$_SESSION['passError'] = true;
 					}
 				}
 			}

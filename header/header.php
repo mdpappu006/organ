@@ -31,7 +31,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200:0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
-
+    <meta name="google-signin-client_id" content="800298839403-rigb41f1eepg1iv2ji4bia3lgufp51be.apps.googleusercontent.com.apps.googleusercontent.com">
 </head>
 
 <body>

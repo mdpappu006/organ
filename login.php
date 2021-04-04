@@ -30,11 +30,23 @@
                                             }
                                         ?>
                                     </div>
-                                </div>
-                
+                                </div> 
+                                
+<!--                 
+                                <div class="col-md-12">
+                                    <a href="forget-pass.php">Forget Password</a>
+                                </div> -->
                             
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn" name="userLogin">Login</button>
+                                    <div class="signinapi text-center">
+                                        <button type="submit" class="btn d-block facebook"> <i class="fab fa-facebook"></i> Login with Facebook</button>
+                                  
+                                        <button type="submit" class="btn d-block google"> <i class="fab fa-google"> </i>Login with Google</button>
+                                    </div>
+                                    <p class="loginwith"><span class="or-left"></span> or <span class="or-right"></span></p>
+                                    <div class="col-md-12 text-center">
+                                        <button type="submit" class="btn" name="userLogin">Login</button>
+                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -53,4 +65,5 @@
 
 <!--footers-->
 <?php include_once('header/footer.php') ;?>
+
 <!--footers-->
