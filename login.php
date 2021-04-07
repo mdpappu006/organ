@@ -22,7 +22,11 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <input type="text" placeholder="Email" name="email" required/>
-                                    <input type="password" placeholder="Password" name="password" required/>
+                                    
+                                    <input class="mb-2" type="password" placeholder="Password" name="password" required/>
+                                    <div class="forget-pass d-block text-right">
+                                        <a class="" href="#">Forgot Password</a>
+                                    </div>
                                     <div class="error">
                                         <?php 
                                             if(isset($passError)){
