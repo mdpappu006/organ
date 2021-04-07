@@ -16,17 +16,15 @@
                     <div class="form-inside-all">
                         <form method="POST">
                             <div class="titles">
-                                <h4>Login </h4>
+                                <h4>Find Your Account </h4>
                             </div>
                 
                             <div class="row">
                                 <div class="col-md-12">
+                                    <p class="mb-3">Please enter your email address to search for your account.</p>
+
                                     <input type="text" placeholder="Email" name="email" required/>
                                     
-                                    <input class="mb-2" type="password" placeholder="Password" name="password" required/>
-                                    <div class="forget-pass d-block text-right">
-                                        <a href="forgot-password.php">Forgot Password</a>
-                                    </div>
                                     <div class="error">
                                         <?php 
                                             if(isset($passError)){
@@ -36,21 +34,8 @@
                                     </div>
                                 </div> 
                                 
-<!--                 
                                 <div class="col-md-12">
-                                    <a href="forget-pass.php">Forget Password</a>
-                                </div> -->
-                            
-                                <div class="col-md-12">
-                                    <div class="signinapi text-center">
-                                        <button type="submit" class="btn d-block facebook"> <i class="fab fa-facebook"></i> Login with Facebook</button>
-                                  
-                                        <button type="submit" class="btn d-block google"> <i class="fab fa-google"> </i>Login with Google</button>
-                                    </div>
-                                    <p class="loginwith"><span class="or-left"></span> or <span class="or-right"></span></p>
-                                    <div class="col-md-12 text-center">
-                                        <button type="submit" class="btn" name="userLogin">Login</button>
-                                    </div>
+                                    <button type="submit" class="btn" name="userLogin">Login</button>
                                 </div>
                             </div>
                         </form>
