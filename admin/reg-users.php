@@ -5,6 +5,7 @@
         header("location: index.php");
         die();
     }
+	ob_start();
  ?>
 
 <!doctype html>
@@ -84,6 +85,9 @@
 											<th>Contact no</th>
 											<th>Address</th>
 											<th>Donate</th>
+											<th>Nid Photo</th>
+											<th>Verification Status</th>
+											<th>User Verification</th>
 											<th>Action</th>
 										</tr>
 									</thead>
@@ -95,6 +99,9 @@
 											<th>Contact no</th>
 											<th>Address</th>
 											<th>Donate</th>
+											<th>Nid Photo</th>
+											<th>Verification Status</th>
+											<th>User Verification</th>
 											<th>Action</th>
 										</tr>
 									</tfoot>
@@ -122,6 +129,57 @@ if(isset($_REQUEST['eid'])){
 											<td><?php echo $data['phone']?></td>
 											<td><?php echo $data['address']?></td>
 											<td><?php echo $data['donate_user']?></td>
+											<td><a target="_blank" href="../nid_photo/<?php echo $data['nid']?>"><img width="80" height="80" src="../nid_photo/<?php echo $data['nid']?>"></a></td>
+
+
+											<td> 
+<?php
+
+
+								
+											if($data['action'] == 1):
+											?>	<p class="verify">Verified</p>
+											<?php else:?>
+											 <p class="unverify">Unverified</p></td>
+											<?php endif;?>
+
+
+											
+											<td>
+											
+											
+											
+											
+<?php
+
+
+											
+$uid = $data['id'];
+if(isset($_REQUEST['uid'])){
+	$idunv = $_GET['uid'];
+	$status="0";
+	$query = "UPDATE signup_user SET action=$status WHERE id=$idunv";
+	$Result =mysqli_query($connect, $query);
+	header("location: reg-users.php");
+}
+
+if(isset($_REQUEST['idverify'])){
+	$idverify= $_GET['idverify'];
+	$status=1;
+	$query = "UPDATE signup_user SET action=$status WHERE id=$idverify";
+	$Result =mysqli_query($connect, $query);
+	header("location: reg-users.php");
+}
+								
+											if($data['action'] == 1):
+											?>	<a href="reg-users.php?uid=<?php echo $uid?>">Verified</a> 
+											<?php else:?>
+											 <a href="reg-users.php?idverify=<?php echo $uid?>">Unverified</a></td>
+											<?php endif;?>
+
+											
+											
+											</td>
 											<td><a href="reg-users.php?eid=<?php echo $id?>">Delete</a></td>
 										</tr>
 <?php }?>

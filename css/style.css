@@ -1464,3 +1464,38 @@ input.term-policy{
 .or-right{
   right: 0;
 }
+
+.unverify {
+  color: red;
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center;
+  position: relative;
+}
+
+
+.verify{
+  color: green;
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center;
+  position: relative;
+}
+
+
+.user-status{
+  background: #e4e4e4;
+  padding: 15px!important;
+  margin-bottom: 15px!important;
+  text-align: center;
+}
+
+.dropdown-menu.custom-pad{
+  padding-top: 0!important;
+}
+
+.fa-check-circle{
+  position: absolute;
+  left: -25px;
+  top: 4px;
+}

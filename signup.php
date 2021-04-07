@@ -21,7 +21,7 @@
             <div class="row ">
                 <div class="col-md-12">
                     <div class="form-inside-all">
-                        <form method="POST">
+                        <form method="POST" enctype="multipart/form-data">
                             <div class="titles">
                                 <h4>Enter your details for Signup</h4>
                             </div>
@@ -49,13 +49,11 @@
                                     <input type="text" placeholder="Address" name="address" required/>
                                 </div>
 
-<!--                             	<div class="col-md-12 label-btn">
-                                	<input type="radio" placeholder="Blood" id="blood" class="radio-btn" name="donation" value="blood" checked/>
-                                	<label for="blood" class="pr-3">Blood</label>
+                                <div class="col-md-6">
+                                    <input type="file" placeholder="Upload Your ID" name="nid_card" required>
+                                    <label class="up-pre">*Upload NID</label>
+                                </div>
 
-                                	<input type="radio" placeholder="Organ" id="organ" class="radio-btn" name="donation" value="organ"/>
-                                	<label for="organ">Organ</label>
-                            	</div> -->
 
                                 <div class="col-md-12">
                                     <button type="submit" class="btn" name="signup">Signup</button>

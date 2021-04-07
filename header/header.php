@@ -67,7 +67,25 @@
                             <?php 
                                 echo $_SESSION['username'];
                             ?><i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu custom-pad">
+                                <li class="user-status"><?php 
+                                
+                                $query = "SELECT * FROM signup_user";
+                                $result= mysqli_query($connect, $query);
+                            
+
+                                foreach($result as $data){	
+
+                                    if($data['action'] == 1):
+
+                                       echo "<span class='verify'><i class='fas fa-check-circle'></i>Verified</span>";
+                                    else:
+                                        echo "<span class='unverify'>Unverified</span>";
+                                    endif;
+                                } ?>
+                                </li>
+
+
                                 <li><a href="./form.php">Post Request</a></li>
                                 <li><a href="./post.php">Your Post</a></li>
                                 <li><a href="./backend/logout.php">Sign Out</a></li>

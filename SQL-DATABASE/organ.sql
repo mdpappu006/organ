@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 07, 2021 at 06:13 AM
+-- Generation Time: Apr 07, 2021 at 08:41 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.4.0
 
@@ -146,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `post_request` (
 --
 
 INSERT INTO `post_request` (`id`, `patientName`, `address`, `phone`, `requiredorgan`, `prescription`, `email`, `donate_user`, `action`) VALUES
-(1, 'Mr John', 'Dhaka', '01775151024', 'Blood', 'f605f3735875915.69153043.jpg', 'John@gmail.com', 'blood', 1);
+(1, 'Mr John', 'Dhaka', '01775151024', 'Blood', 'f605f3735875915.69153043.jpg', 'John@gmail.com', 'blood', 0);
 
 -- --------------------------------------------------------
 
@@ -161,20 +161,21 @@ CREATE TABLE IF NOT EXISTS `signup_user` (
   `lastname` varchar(50) NOT NULL,
   `phone` varchar(11) NOT NULL,
   `email` varchar(30) NOT NULL,
+  `nid` varchar(255) NOT NULL,
   `pass` varchar(255) NOT NULL,
   `address` varchar(100) NOT NULL,
   `donate_user` varchar(30) DEFAULT NULL,
+  `action` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `signup_user`
 --
 
-INSERT INTO `signup_user` (`id`, `firstname`, `lastname`, `phone`, `email`, `pass`, `address`, `donate_user`) VALUES
-(1, 'Nazmul', 'Hossain', '01775151041', 'mdpappu006@gmail.com', '$2y$10$NcBJlVBIu9wH/EU8W55r.uR58nS02EGN8JvmRYYNg40LLxAxwQRT6', 'Tangail', NULL),
-(2, 'mr', 'jean', '01550000000', 'jean@gmail.com', '$2y$10$gxBLOdV0X81W3f/NGHfsauaJ3oWyY0L3SfjQbreYep5nE3ITob4V2', 'USA', NULL);
+INSERT INTO `signup_user` (`id`, `firstname`, `lastname`, `phone`, `email`, `nid`, `pass`, `address`, `donate_user`, `action`) VALUES
+(1, 'Nazmul', 'Hossain', '01775151041', 'mdpappu006@gmail.com', 'f606d6f6d2c9028.09309258.jpg', '$2y$10$.fgHQzKJSgVxtKLmOkTFPOwSyPEeVTZSUdTkl.Dy18wNIHeXk3NNa', 'Tangail', NULL, 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

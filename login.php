@@ -2,19 +2,38 @@
 <?php 
     require_once "backend/user-login.php";
     include_once('header/header.php') ;
+    ob_start();
 ?>
 <!-- /.navbar -->
 
 <?php if(!isset($_SESSION['user'])){ ?>
 
 <main class="main-wrap">
+
+        <!-- Failed Message --> 
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-9 mx-auto">
+                    <?php if(isset($_SESSION['passError'])):?>
+                        <div class="alert alert-danger" role="alert">
+                            Invalid Password!
+                        </div>
+                    <?php unset($_SESSION["passError"]);
+                        
+                    endif;?> 
+                </div>
+            </div>
+        </div>
+        <!-- Failed Message --> 
+
+
     <!--forms-->
     <div class="form-wrapper">
         <div class="container">
             <div class="row ">
                 <div class="col-md-8 mx-auto">
                     <div class="form-inside-all">
-                        <form method="POST">
+                        <form action="login.php" method="POST">
                             <div class="titles">
                                 <h4>Login </h4>
                             </div>
@@ -48,10 +67,12 @@
                                         <button type="submit" class="btn d-block google"> <i class="fab fa-google"> </i>Login with Google</button>
                                     </div>
                                     <p class="loginwith"><span class="or-left"></span> or <span class="or-right"></span></p>
-                                    <div class="col-md-12 text-center">
-                                        <button type="submit" class="btn" name="userLogin">Login</button>
-                                    </div>
                                 </div>
+                            </div>
+
+                            
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn" name="userLogin">Login</button>
                             </div>
                         </form>
                     </div><!--/.form-inside-all-->

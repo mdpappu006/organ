@@ -1,12 +1,12 @@
 <?php	
 	require_once("db.php");
-		if(isset($_POST['userLogin'])){
+	if(isset($_POST['userLogin'])){
 		$email = trim($_POST['email']);
 		$userpass = $_POST['password'];
 		if($email && $userpass){
 			$query = "SELECT id, firstname ,email, pass FROM signup_user WHERE email ='{$email}'";
 			$result= mysqli_query($connect, $query);
-
+			
 			if(mysqli_num_rows($result) > 0){
 				$Udata = mysqli_fetch_assoc($result);
 				$_password = $Udata['pass'];
