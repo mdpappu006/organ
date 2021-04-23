@@ -1128,12 +1128,7 @@ all style
   }
 }
 
-  {
-  font-family: 'Raleway', sans-serif;
-  font-family: 'Poppins', sans-serif;
-}
-
-h1 {
+h1{
     font-size: 30px;
   
   }
@@ -1347,6 +1342,9 @@ user_login
     list-style: outside none none;
     margin: 0;
     padding: 4px 15px 7px;
+}
+
+.user_login ul li.useritem{
     float: left;
 }
 
@@ -1356,6 +1354,32 @@ user_login
   top: 3px;
   cursor: pointer;
 }
+
+.user_login ul.dropdown-menu.notification{
+  right: 0;
+  left: inherit;
+  border-radius: 5px;
+  box-shadow: -2px 2px 3px rgb(57 73 76 / 10%);
+  width: 20em;
+  font-size: 15px;
+}
+
+.user_login ul.dropdown-menu.notification li{
+  line-height: 25px;
+}
+
+
+
+.user_login .user-badge{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  padding: 3px 7px;
+  border-radius: 50%;
+}
+
+
+
 
 .dropdown-menu>li>a {
     display: block;
@@ -1506,4 +1530,99 @@ input.term-policy{
   position: absolute;
   left: -25px;
   top: 4px;
+}
+
+
+/* User chat area */
+
+.chat-area{
+  border: 1px solid #ddd;
+  margin: 50px 0;
+  position: relative;
+}
+
+.admin-profile{
+  background: #E0E0E0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  left: 0;
+  color: #656565;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  display: inline-block;
+  font-size: 30px;
+}
+
+.admin-chat{
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+
+.admin-profile b{
+  position: relative;
+  top: 10px;
+}
+
+.admin-chat p{
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 14px;
+  color: #616161;
+}
+
+.profile-left{
+  width: 7%;
+  float: left;
+}
+
+.profile-info{
+  width: 93%;
+  float: left;
+}
+
+.profile-info h6{
+  font-weight: 900;
+  font-size: 16px;
+  color: #656565;
+  position: relative;
+  bottom: 5px;
+}
+.admin-chat.user b{
+  font-size: 20px;
+}
+
+.chat-main,.chat-box{
+  padding: 35px;
+}
+
+.chat-main{
+  height: 45vh;
+  overflow-y: scroll;
+}
+
+.chat-box{
+  text-align: right;
+}
+
+.submit-user-chat{
+  background: #F9F9F9;
+}
+
+.submit-user-chat textarea{
+  width: 100%;
+  padding: 20px 26px;
+  resize: none;
+}
+
+.submit-user-chat textarea:focus{
+  outline: none;
+}
+
+.btn-primary.btn-chats{
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
 }

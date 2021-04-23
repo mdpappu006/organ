@@ -1,15 +1,13 @@
-     <!-- main nav start -->
-    <?php 
-        include_once('header/header.php') ;
-        include_once('backend/post_request.php') ;
-        $id = $_SESSION['user'] ?? 0;
-        if(!$id){
-            header("location: index.php");
-            die();
-        }
+<?php 
+    include_once('header/header.php') ;
+    include_once('backend/post_request.php') ;
+    $id = $_SESSION['user'] ?? 0;
+    if(!$id){
+        header("location: index.php");
+        die();
+    }
+?>
 
-    ?>
-    <!-- /.navbar -->
 <main class="main-wrap">
     <!--forms-->
     <div class="form-wrapper">

@@ -1,5 +1,6 @@
 <?php 
     require_once("./backend/db.php");
+    ob_start();
 ?>
 
 <!DOCTYPE html>
@@ -62,8 +63,32 @@
                 <div class="header_wrap">
                     <div class="user_login">
                       <ul>
-                      <li><i class="far fa-bell"></i></li>
-                        <li class="dropdown open"> 
+                        <li class="useritem dropdown"><i class="far fa-bell" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+                        <?php 
+                            
+                            $query = "SELECT * FROM signup_user";
+                            $result= mysqli_query($connect, $query);
+
+                             foreach($result as $data){	
+
+                                if($data['action'] == 1): ?>
+                                    <span class="user-badge badge bg-warning text-white">1</span>
+                        <?php   endif; }?>
+
+
+                            <ul class="dropdown-menu notification">
+                                <?php 
+
+                                    foreach($result as $data){	
+
+                                        if($data['action'] == 1): ?>
+                                            <li>Your Account has been approved by admin.</li>
+                                    <?php endif;  
+                                }?>
+                            </ul>
+                    
+                        </li>
+                        <li class="dropdown open useritem"> 
                             <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user-circle" aria-hidden="true"></i> 
                             <?php 
                                 echo $_SESSION['username'];
@@ -86,7 +111,7 @@
                                 } ?>
                                 </li>
 
-
+                                <li><a href="./messages.php">Messages</a></li>
                                 <li><a href="./form.php">Post Request</a></li>
                                 <li><a href="./post.php">Your Post</a></li>
                                 <li><a href="./backend/logout.php">Sign Out</a></li>
