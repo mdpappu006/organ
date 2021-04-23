@@ -62,6 +62,7 @@
                 <div class="header_wrap">
                     <div class="user_login">
                       <ul>
+                      <li><i class="far fa-bell"></i></li>
                         <li class="dropdown open"> 
                             <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user-circle" aria-hidden="true"></i> 
                             <?php 

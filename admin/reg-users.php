@@ -187,9 +187,6 @@ if(isset($_REQUEST['idverify'])){
 								</table>
 							</div>
 						</div>
-
-					
-
 					</div>
 				</div>
 

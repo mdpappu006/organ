@@ -1347,6 +1347,14 @@ user_login
     list-style: outside none none;
     margin: 0;
     padding: 4px 15px 7px;
+    float: left;
+}
+
+.user_login ul li i.fa-bell{
+  font-size: 20px;
+  position: relative;
+  top: 3px;
+  cursor: pointer;
 }
 
 .dropdown-menu>li>a {
