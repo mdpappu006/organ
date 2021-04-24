@@ -1557,7 +1557,6 @@ input.term-policy{
 
 .admin-chat{
   overflow: hidden;
-  margin-bottom: 30px;
 }
 
 
@@ -1571,24 +1570,35 @@ input.term-policy{
   margin-top: 2px;
   font-size: 14px;
   color: #616161;
+  background: rgb(238, 238, 238);
+  padding: 15px;
+  border-radius: 10px 10px 0 10px;
+  margin-top: 15px;
+}
+
+.admin-chat p.current-user{
+  color: #fff;
+  background: #455a64;
 }
 
 .profile-left{
-  width: 7%;
-  float: left;
+  display: inline-block;
+
 }
 
-.profile-info{
-  width: 93%;
-  float: left;
-}
 
-.profile-info h6{
+.profile-left h6{
   font-weight: 900;
   font-size: 16px;
   color: #656565;
   position: relative;
   bottom: 5px;
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.user .profile-left h6{
+  right: 10px;
 }
 .admin-chat.user b{
   font-size: 20px;
@@ -1600,7 +1610,7 @@ input.term-policy{
 
 .chat-main{
   height: 45vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .chat-box{
@@ -1625,4 +1635,16 @@ input.term-policy{
   border: none;
   border-radius: 5px;
   margin-top: 10px;
+}
+
+.admin-chat.user{
+  text-align: right;
+}
+
+.admin-chat .admin-u{
+  border-radius: 10px 10px 10px 0px!important;
+  margin-left: 65px;
+  margin-top: 0;
+  position: relative;
+  bottom: 10px;
 }
