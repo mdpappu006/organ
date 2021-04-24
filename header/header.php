@@ -1,6 +1,10 @@
 <?php 
     require_once("./backend/db.php");
     ob_start();
+    $user_id = $_SESSION['id'] ?? 0;                             
+    $query = "SELECT * FROM signup_user where id= '$user_id'";
+    $result= mysqli_query($connect, $query);
+
 ?>
 
 <!DOCTYPE html>
@@ -65,9 +69,6 @@
                       <ul>
                         <li class="useritem dropdown"><i class="far fa-bell" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
                         <?php 
-                            
-                            $query = "SELECT * FROM signup_user";
-                            $result= mysqli_query($connect, $query);
 
                              foreach($result as $data){	
 
@@ -96,10 +97,6 @@
                             <ul class="dropdown-menu custom-pad">
                                 <li class="user-status"><?php 
                                 
-                                $query = "SELECT * FROM signup_user";
-                                $result= mysqli_query($connect, $query);
-                            
-
                                 foreach($result as $data){	
 
                                     if($data['action'] == 1):
