@@ -2,9 +2,10 @@
     require_once("./backend/db.php");
     ob_start();
     $user_id = $_SESSION['id'] ?? 0;                             
+    $Uid = $_SESSION['userID'] ?? 0;                             
     $query = "SELECT * FROM signup_user where id= '$user_id'";
     $result= mysqli_query($connect, $query);
-
+    
 ?>
 
 <!DOCTYPE html>
@@ -105,10 +106,27 @@
                                     else:
                                         echo "<span class='unverify'>Unverified</span>";
                                     endif;
-                                } ?>
+                                } 
+
+    // Total Message Count || Message checking
+    $rCount = "SELECT * FROM messages where (sender !='$Uid' && seen='0') AND sender='1'";
+	$resultCount= mysqli_query($connect, $rCount);
+	// Total Message Count || Message checking
+
+                                
+                                ?>
                                 </li>
 
-                                <li><a href="./messages.php">Messages</a></li>
+                                <li class="position-relative"><a href="./messages.php">Messages
+                                <?php
+                                    $row = mysqli_num_rows($resultCount);
+                                    if($row > 0){
+                                        echo "<span class='messages user-badge badge bg-success text-white'>{$row}</span>";
+                                    }
+                                ?>
+                               
+                                
+                                </a></li>
                                 <li><a href="./form.php">Post Request</a></li>
                                 <li><a href="./post.php">Your Post</a></li>
                                 <li><a href="./backend/logout.php">Sign Out</a></li>

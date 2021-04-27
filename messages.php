@@ -8,6 +8,11 @@
         die();
     }
 
+    if($userID){
+		$urQ = "UPDATE messages SET seen='1' WHERE sender='1' && receiver='$userID'";
+		$uRes =mysqli_query($connect, $urQ);
+	}
+
 ?>
 
     <div class="container">

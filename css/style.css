@@ -1648,3 +1648,8 @@ input.term-policy{
   position: relative;
   bottom: 10px;
 }
+
+.messages.user-badge{
+  right: 25px;
+  top: 6px;
+}
