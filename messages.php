@@ -22,20 +22,6 @@
                     <input type="hidden" value="<?php echo $userID;?>" name="userID">
 
                     <div class="chat-main">
-                        <!-- <div class="admin-chat">
-                            <div class="profile-left">
-                                <span class="admin-profile"><b>A</b></span>
-                                <h6>Admin</h6>
-                            </div>
-
-                            <div class="profile-info">
-                                <div class="d-inline-block">
-                                    <p class="admin-u"> Hi, How are you?</p>
-                                </div>
-                            </div>
-                        </div> -->
-
-                       	<!-- Message left -->
 						<?php 
 
                         $query = "SELECT * FROM messages where (sender='$userID' && receiver=1) OR (receiver='$userID' && sender=1)";

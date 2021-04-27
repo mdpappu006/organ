@@ -3,12 +3,13 @@
     include_once('backend/messages.php') ;
     include_once('backend/chats.php') ;
     $id = $_SESSION['userid'] ?? 0;
-	$urlID= $_GET['id'] ?? 0;
+	$urlID = $_GET['id'] ?? 0;
 	if(!$id){
         header("location: index.php");
         die();
     }
 	ob_start();
+	
  ?>
 
 <!doctype html>
@@ -58,6 +59,16 @@
 	    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
 	    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
 	}
+	.previous-back{
+		font-size: 20px;
+		margin-bottom: 15px;
+		display: inline-block;
+	}
+
+	.fa-angle-left{
+		font-size: 20px;
+		margin-right: 15px;
+	}
 	</style>
 
 </head>
@@ -74,6 +85,8 @@
 					<div class="col-md-12">
 
 						<h2 class="page-title">Messages</h2>
+						
+						<a class="previous-back" href="messages-users.php"><i class="fa fa-angle-left"></i>Back</a>
 
 						<!-- Zero Configuration Table -->
 						<div class="panel panel-default">
@@ -92,7 +105,7 @@
                 <form action="messages.php" method="POST" class="chat-area">
                     <input type="hidden" value="<?php echo $urlID;?>" name="userID">
 
-                    <div class="chat-main">
+                    <div class="chat-main" id="viewHere">
 						<!-- Message left -->
 						<?php 
 
@@ -112,12 +125,18 @@
 
 							<?php 
 								else:
-                            
+									$UserQ = "SELECT * FROM signup_user where userID='$urlID' limit 1";
+									$UResult = mysqli_query($connect, $UserQ);
+									foreach($UResult as $uname){
+										$name =  $uname['firstname'];
+									}
 							?>
 								<div class="admin-chat">
 									<div class="profile-left">
-										<span class="admin-profile"><b>N</b></span>
-										<h6>Nazmul</h6>
+										<span class="admin-profile"><b><?php echo substr($name, 0,1);?></b></span>
+										<h6><?php 
+												echo $name;
+										?></h6>
 									</div>
 	
 									<div class="profile-info">
@@ -126,7 +145,6 @@
 										</div>
 									</div>
 								</div>
-	
 							<?php	
 							endif;
 							} ?>
@@ -197,7 +215,21 @@
 		// 	},"send_message");
 		// }
 
+		
+
     </script>   
+
+	<script type="text/javascript">
+        $(function() {
+            startRefresh();
+        });
+        // function startRefresh() {
+        //     setTimeout(startRefresh,1000);
+        //     $.get('messages.php', function(data) {
+        //         $('#viewHere').html(data);
+        //     });
+        // }
+    </script>
 
 
 </body>

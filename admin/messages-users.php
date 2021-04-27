@@ -1,6 +1,7 @@
 <?php
 	require_once("../backend/db.php");
     $id = $_SESSION['userid'] ?? 0;
+	// $userID = $_SESSION['userID'] ?? 0;
 	if(!$id){
         header("location: index.php");
         die();
@@ -55,6 +56,14 @@
 	    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
 	    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
 	}
+
+	.messages-suc{
+		color: #ffffff;
+    	background-color: #37A001;
+		font-size: 13px;
+		line-height: 14px;
+		font-weight: 900;
+	}
 	</style>
 
 </head>
@@ -79,14 +88,16 @@
 								<table id="zctb" class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 									<thead>
 										<tr>
-											<th>Online Status</th>
+											<th>User List</th>
+											<th>Total Messages</th>
 											<th> Name</th>
 											<th>Action</th>
 										</tr>
 									</thead>
 									<tfoot>
 										<tr>
-											<th>Online Status</th>
+											<th>User List</th>
+											<th>Total Messages</th>
 											<th> Name</th>
 											<th>Action</th>
 										</tr>
@@ -96,16 +107,67 @@
 <?php 
     $query = "SELECT * FROM signup_user";
 	$result= mysqli_query($connect, $query);
+	
+
+	// user ID Query
+    $Uquery = "SELECT * FROM messages where receiver !='1'";
+	$Uresult= mysqli_query($connect, $Uquery);
+	// foreach($Uresult as $userid){
+	// 	$userid[] = $userid['receiver'];
+	// }
+	// user ID Query
+	
+
+
+
+	// Total Message Count 
+    $rCount = "SELECT * FROM messages where (receiver !='1'  AND seen='0')";
+	$resultCount= mysqli_query($connect, $rCount);
+	// $row = mysqli_num_rows($resultCount);
+	// Total Message Count 
+	
+
+
+
+
+
+	
+// var_dump($userID);
+// var_dump($row);
 
 	foreach($result as $data):
+	$userID = $data['userID'];
 ?>	
 
 										<tr>
-											<td> <?php echo $data['id'] ;?> Online</td>
+											<td> <?php echo $data['id'] ;?> </td>
+											<td class="text-center"> 
+											<?php 
+												$rCount = "SELECT * FROM messages where (sender !='1' && seen='0') AND sender='$userID'";
+												$resultCount = mysqli_query($connect, $rCount);
+												$row = mysqli_num_rows($resultCount);
+												
+
+												if($row > 0):
+																									
+											?>
+												<button type="button" class="btn btn-success messages-suc">
+													<?php echo $row ;?>
+												</button> 
+											<?php 
+												else:
+													echo "No messages from user!";
+												endif;
+											?>
+											</td>
 											<td> <?php echo $data['firstname'] ;?></td>
-											<td><a href="messages.php?id=<?php echo $data['userID']?>">Live Chat</a></td>
+											<td><a href="messages.php?id=<?php echo $userID?>">Live Chat</a></td>
 									
 										</tr>
+<?php ?>
+
+<input type="hidden" value="<?php echo $userID;?>" name="userID">
+
 <?php endforeach;?>		
 									</tbody>
 								</table>
