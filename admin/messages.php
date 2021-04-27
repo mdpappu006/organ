@@ -1,7 +1,9 @@
 <?php
 	require_once("../backend/db.php"); 
     include_once('backend/messages.php') ;
+    include_once('backend/chats.php') ;
     $id = $_SESSION['userid'] ?? 0;
+	$urlID= $_GET['id'] ?? 0;
 	if(!$id){
         header("location: index.php");
         die();
@@ -88,69 +90,56 @@
 
             <div class="col-md-12">
                 <form action="messages.php" method="POST" class="chat-area">
-                    <input type="hidden" value="<?php echo $id;?>" name="userID">
+                    <input type="hidden" value="<?php echo $urlID;?>" name="userID">
 
                     <div class="chat-main">
-                        
+						<!-- Message left -->
+						<?php 
 
-                        <?php 
-                            $uid = $_GET['id'];
-                            $query = "SELECT signup_user.id, signup_user.firstname, messages.formUser, messages.message FROM signup_user
-                            INNER JOIN messages
-                            ON signup_user.id=messages.formUser where formUser='$uid'";
-                            $userquery = mysqli_query($connect, $query);
+							$query = "SELECT * FROM messages where(sender='1' && receiver='$urlID') OR (receiver='1' && sender='$urlID')";
+							$result = mysqli_query($connect, $query);
 
-
-							foreach ($userquery as $data): 
-                        
-								?>
-							   
-								<div class="admin-chat">
-									<div class="profile-left">
-										<span class="admin-profile"><b>
-											<?php 
-												echo substr($data['firstname'], 0,1);
-											?></b></span>
-										<h6><?php echo $data['firstname'] ?></h6>
-									</div>
-		
-									<div class="profile-info">
-										<div class="d-inline-block">
-											<p class="admin-u"> <?php echo $data['message'] ?> </p>
+							foreach ($result as $data){
+                            	if($data['sender'] == '1'):
+							?>
+								<div class='admin-chat user'>
+									<div class='profile-info'>
+										<div class='d-inline-block w-50'>
+											<p class='current-user'><?php echo $data['message'] ?></p>
 										</div>
 									</div>
 								</div>
-		
+
 							<?php 
-								endforeach; 
-							?>
-
-						<?php
-                            $Adminquery = "SELECT ToAdmin,message FROM messages where ToAdmin='$uid'";
-                            $Aresult = mysqli_query($connect, $Adminquery);
-
-
-                            foreach ($Aresult as $d): ?>
-
-                            <div class="admin-chat user">
-                                <div class="profile-info">
-                                    <div class="d-inline-block w-50">
-                                        <p class="current-user"> <?php echo $d['message']?></p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        <?php  endforeach; ?>
+								else:
                             
-                     
+							?>
+								<div class="admin-chat">
+									<div class="profile-left">
+										<span class="admin-profile"><b>N</b></span>
+										<h6>Nazmul</h6>
+									</div>
+	
+									<div class="profile-info">
+										<div class="d-inline-block">
+											<p class="admin-u"> <?php echo $data['message'] ?></p>
+										</div>
+									</div>
+								</div>
+	
+							<?php	
+							endif;
+							} ?>
 
+
+							
+                        
                     </div>
 
                     <div class="submit-user-chat">
                         <div class="chat-box">
-                            <textarea name="usermessages" rows="3" id="chat-text" required></textarea>
-                            <button id="send" class="btn btn-primary btn-chats" name="message-send">Send</button>
+                            <textarea name="usermessages" rows="3" id="message_text" required></textarea>
+                            <button class="btn btn-primary btn-chats" name="message-send">Send</button>
                         </div>
                     </div>
                 </form>
@@ -186,6 +175,28 @@
 
     <script>
         $(".chat-main").scrollTop($(".chat-main").prop('scrollHeight'));
+    </script>   
+
+    <script>
+
+		// function _(element){
+		// 	return document.getElementById(element);
+		// }
+
+		// function send_message(e){
+		// 	var message_text = _("message_text");
+		// 	// alert(message_text.value);
+		// 	if(message_text.value.trim() == ""){
+		// 		alert("please text something to send!");
+		// 		return;
+		// 	}
+
+		// 	get_data({
+		// 		message: message_text.value.trim(),
+		// 		userid: CURRENT_CHAT_USER;
+		// 	},"send_message");
+		// }
+
     </script>   
 
 

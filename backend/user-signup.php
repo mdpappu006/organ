@@ -9,7 +9,7 @@
 		$userpass = $_POST['pass'];
 		$pass = password_hash($userpass, PASSWORD_BCRYPT);
 		$address = trim($_POST['address']);
-
+		$userId = hexdec(uniqid());
 
 		// Upload files
 		$file_data= explode(".", $nid['name']);
@@ -25,11 +25,10 @@
 
 
 
-		$insert = "INSERT INTO signup_user(firstname, lastname, phone, email, nid, pass, address) values('$fname', '$lname', '$phone', '$email', '$newfileName', '$pass', '$address')";
+		$insert = "INSERT INTO signup_user(userID,firstname, lastname, phone, email, nid, pass, address) values('$userId','$fname', '$lname', '$phone', '$email', '$newfileName', '$pass', '$address')";
 		$result = mysqli_query($connect, $insert);
 		
-
-		$uQuery = "SELECT id,firstname ,email FROM signup_user WHERE email ='{$email}'";
+		$uQuery = "SELECT id,userID,firstname ,email FROM signup_user WHERE email ='{$email}'";
 		$userR= mysqli_query($connect, $uQuery);
 		$Udata = mysqli_fetch_assoc($userR);
 
@@ -37,6 +36,7 @@
 			$_SESSION['user'] = true;
 			$_SESSION['username'] = $Udata['firstname'];
 			$_SESSION['id'] = $Udata['id'];
+			$_SESSION['userID'] = $Udata['userID'];
 			$_SESSION['action'] = $Udata['action'];
             header("location: index.php");
 			exit();

@@ -103,7 +103,7 @@
 										<tr>
 											<td> <?php echo $data['id'] ;?> Online</td>
 											<td> <?php echo $data['firstname'] ;?></td>
-											<td><a href="messages.php?id=<?php echo $data['id']?>">Live Chat</a></td>
+											<td><a href="messages.php?id=<?php echo $data['userID']?>">Live Chat</a></td>
 									
 										</tr>
 <?php endforeach;?>		
