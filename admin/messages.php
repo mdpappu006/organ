@@ -4,12 +4,20 @@
     include_once('backend/chats.php') ;
     $id = $_SESSION['userid'] ?? 0;
 	$urlID = $_GET['id'] ?? 0;
-	if(!$id){
+	if(!($id && $urlID)){
         header("location: index.php");
         die();
     }
 	ob_start();
-	
+
+// var_dump($urlID);
+
+	if($urlID){
+		$urQ = "UPDATE messages SET seen='1' WHERE sender='$urlID'";
+		$uRes =mysqli_query($connect, $urQ);
+
+		echo "true";
+	}
  ?>
 
 <!doctype html>
@@ -148,10 +156,6 @@
 							<?php	
 							endif;
 							} ?>
-
-
-							
-                        
                     </div>
 
                     <div class="submit-user-chat">
@@ -164,12 +168,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
 
 							</div>
 						</div>

@@ -112,31 +112,17 @@
 	// user ID Query
     $Uquery = "SELECT * FROM messages where receiver !='1'";
 	$Uresult= mysqli_query($connect, $Uquery);
-	// foreach($Uresult as $userid){
-	// 	$userid[] = $userid['receiver'];
-	// }
 	// user ID Query
-	
 
-
-
-	// Total Message Count 
+	// Total Message Count || Message checking
     $rCount = "SELECT * FROM messages where (receiver !='1'  AND seen='0')";
 	$resultCount= mysqli_query($connect, $rCount);
-	// $row = mysqli_num_rows($resultCount);
-	// Total Message Count 
-	
-
-
-
-
-
-	
-// var_dump($userID);
-// var_dump($row);
+	// Total Message Count || Message checking
 
 	foreach($result as $data):
+	
 	$userID = $data['userID'];
+
 ?>	
 
 										<tr>
@@ -161,14 +147,10 @@
 											?>
 											</td>
 											<td> <?php echo $data['firstname'] ;?></td>
-											<td><a href="messages.php?id=<?php echo $userID?>">Live Chat</a></td>
+											<td><a href="messages.php?id=<?php echo $userID;?>">Live Chat</a></td>
 									
 										</tr>
-<?php ?>
-
-<input type="hidden" value="<?php echo $userID;?>" name="userID">
-
-<?php endforeach;?>		
+	<?php endforeach;?>		
 									</tbody>
 								</table>
 							</div>
@@ -179,6 +161,7 @@
 			</div>
 		</div>
 	</div>
+
 
 	<!-- Loading Scripts -->
 	<script src="js/jquery.min.js"></script>
