@@ -93,7 +93,8 @@
                         <li class="dropdown open useritem"> 
                             <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user-circle" aria-hidden="true"></i> 
                             <?php 
-                                echo $_SESSION['username'];
+                                $username = $_SESSION['username'];
+                                echo substr($username, 0,18);
                             ?><i class="fa fa-angle-down" aria-hidden="true"></i></a>
                             <ul class="dropdown-menu custom-pad">
                                 <li class="user-status"><?php 

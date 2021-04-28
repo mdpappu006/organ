@@ -19,7 +19,7 @@
         <div class="row">
 
         <div class="col-md-12">
-            <h4 class="mt-5 text-center">Messages</h4>
+            <h4 class="mt-5 text-center">Send your message to Admin</h4>
         </div>
 
             <div class="col-md-12">
