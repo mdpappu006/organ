@@ -44,9 +44,9 @@
 
     <!-- main nav start -->
     <nav class="navbar navbar-expand-lg center-brand static-nav">
-        <div class="container">
+        <div class="container" style="max-width: 1400px;">
             <a class="navbar-brand order-2" href="index.php">
-               <h1>Organ<span>Donationbd</span></h1>
+               <h1><span class="text-danger">Blood</span>&Organ<span>Donationbd</span></h1>
             </a>
 
             <div class="d-flex flex-row order-2 order-lg-3">

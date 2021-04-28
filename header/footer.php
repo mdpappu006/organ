@@ -3,10 +3,11 @@
     <footer class="footers mt-5">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-5 col-xl-4">
+                <div class="col-md-5">
                     <div class="footer-widgets">
                         <a class="navbar-brand order-2" href="index.php">
-               <h1>Organ<span>Donationbd</span></h1>
+                        <h1><span class="text-danger">Blood</span>&Organ<span>Donationbd</span></h1>
+
 
             </a>
                         <ul>

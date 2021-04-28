@@ -42,7 +42,7 @@
                             </div>
 
                             <div class="ca-btn wc mt-3">
-                                <div class="btn create-acc"><a href="signup.php" class="text-white"> Create Account</a></div>
+                                <div class="btn create-acc"><a href="signup-hospital.php" class="text-white"> Create Account</a></div>
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                             </div>
 
                             <div class="ca-btn wc mt-3">
-                                <div class="btn create-acc"><a href="signup.php" class="text-white"> Create Account</a></div>
+                                <div class="btn create-acc"><a href="signup-clinic.php" class="text-white"> Create Account</a></div>
                             </div>
                         </div>
                     </div>

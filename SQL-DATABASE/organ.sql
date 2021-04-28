@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 07, 2021 at 08:41 AM
+-- Generation Time: Apr 28, 2021 at 07:37 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.4.0
 
@@ -39,14 +39,7 @@ CREATE TABLE IF NOT EXISTS `add_doctor` (
   `password` varchar(50) NOT NULL,
   `designation` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `add_doctor`
---
-
-INSERT INTO `add_doctor` (`id`, `fastName`, `Lastname`, `phone`, `address`, `email`, `password`, `designation`) VALUES
-(1, 'Rasel', 'Ahmed', '0177515124', 'Dhaka', 'rasel@gmail.com', '12345', 'MBBS');
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -112,14 +105,35 @@ CREATE TABLE IF NOT EXISTS `contactus` (
   `phone` varchar(15) DEFAULT NULL,
   `messages` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `contactus`
+-- Table structure for table `messages`
 --
 
-INSERT INTO `contactus` (`id`, `fname`, `lname`, `phone`, `messages`) VALUES
-(1, 'dfg', 'dgf', '5345', 'dfh');
+DROP TABLE IF EXISTS `messages`;
+CREATE TABLE IF NOT EXISTS `messages` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `msgid` varchar(60) NOT NULL,
+  `sender` bigint(20) NOT NULL,
+  `receiver` bigint(20) NOT NULL,
+  `message` text NOT NULL,
+  `files` text DEFAULT NULL,
+  `date` datetime NOT NULL,
+  `seen` int(11) NOT NULL DEFAULT 0,
+  `received` int(11) NOT NULL DEFAULT 0,
+  `deleted_sender` tinyint(1) NOT NULL DEFAULT 0,
+  `deleted_receiver` tinyint(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  KEY `sender` (`sender`),
+  KEY `receiver` (`receiver`),
+  KEY `date` (`date`),
+  KEY `deleted_sender` (`deleted_sender`,`deleted_receiver`),
+  KEY `seen` (`seen`),
+  KEY `msgid` (`msgid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -139,14 +153,7 @@ CREATE TABLE IF NOT EXISTS `post_request` (
   `donate_user` varchar(100) NOT NULL,
   `action` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `post_request`
---
-
-INSERT INTO `post_request` (`id`, `patientName`, `address`, `phone`, `requiredorgan`, `prescription`, `email`, `donate_user`, `action`) VALUES
-(1, 'Mr John', 'Dhaka', '01775151024', 'Blood', 'f605f3735875915.69153043.jpg', 'John@gmail.com', 'blood', 0);
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -157,8 +164,9 @@ INSERT INTO `post_request` (`id`, `patientName`, `address`, `phone`, `requiredor
 DROP TABLE IF EXISTS `signup_user`;
 CREATE TABLE IF NOT EXISTS `signup_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` bigint(60) NOT NULL,
   `firstname` varchar(50) NOT NULL,
-  `lastname` varchar(50) NOT NULL,
+  `lastname` varchar(50) DEFAULT NULL,
   `phone` varchar(11) NOT NULL,
   `email` varchar(30) NOT NULL,
   `nid` varchar(255) NOT NULL,
@@ -166,16 +174,14 @@ CREATE TABLE IF NOT EXISTS `signup_user` (
   `address` varchar(100) NOT NULL,
   `donate_user` varchar(30) DEFAULT NULL,
   `action` int(11) NOT NULL DEFAULT 0,
+  `online` int(11) NOT NULL DEFAULT 0,
+  `createAt` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `signup_user`
---
-
-INSERT INTO `signup_user` (`id`, `firstname`, `lastname`, `phone`, `email`, `nid`, `pass`, `address`, `donate_user`, `action`) VALUES
-(1, 'Nazmul', 'Hossain', '01775151041', 'mdpappu006@gmail.com', 'f606d6f6d2c9028.09309258.jpg', '$2y$10$.fgHQzKJSgVxtKLmOkTFPOwSyPEeVTZSUdTkl.Dy18wNIHeXk3NNa', 'Tangail', NULL, 1);
+  UNIQUE KEY `email` (`email`),
+  KEY `userID` (`userID`),
+  KEY `online` (`online`),
+  KEY `createAt` (`createAt`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
