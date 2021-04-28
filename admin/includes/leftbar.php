@@ -9,7 +9,5 @@
 		<li><a href="manage-conactusquery.php"><i class="fa fa-users"></i>Conact Us</a></li>
 		<li><a href="add-doctor.php"><i class="fa fa-users"></i>Add Doctor</a></li>
 		<li><a href="doctor-list.php"><i class="fa fa-users"></i>Doctor List</a></li>
-		<li><a href="#"><i class="fa fa-users"></i>Add Clinic</a></li>
-		<li><a href="#"><i class="fa fa-users"></i>Add Hospital</a></li>
 	</ul>
 </nav>

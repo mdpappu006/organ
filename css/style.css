@@ -1653,3 +1653,48 @@ input.term-policy{
   right: 25px;
   top: 6px;
 }
+
+
+/* 
+=================
+Create account
+=================
+*/
+
+.cart-ac.cart-wc {
+  background: #fff url(../img/gen.png) left top no-repeat;
+  background-size: auto;
+}
+
+.cart-ac {
+  display: block;
+  padding: 4px;
+  margin-bottom: 15px;
+  line-height: 1.428571429;
+  border-radius: 8px;
+  border: 1px solid #ebebeb;
+  padding: 18px 10px 18px 112px;
+  min-height: 130px;
+}
+
+.cart-ac .cart-ac-cont .t-title h2 {
+  font-size: 20px;
+  line-height: 27px;
+  font-weight: 600;
+  padding: 0px 0px 4px 0px;
+  margin: 0px 0px 0px 0px;
+}
+
+.btn.create-acc{
+  font-size: 16px;
+  line-height: inherit;
+  border-radius: 5px;
+}
+
+.cart-ac .cart-ac-cont .p-examp {
+  color: #595959;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0px 0px 15px 0px;
+  margin: 0px 0px 0px 0px;
+}

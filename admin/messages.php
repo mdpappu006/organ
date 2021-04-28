@@ -15,8 +15,6 @@
 	if($urlID){
 		$urQ = "UPDATE messages SET seen='1' WHERE sender='$urlID'";
 		$uRes =mysqli_query($connect, $urQ);
-
-		echo "true";
 	}
  ?>
 

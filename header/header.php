@@ -58,7 +58,7 @@
                     </li>
                     <li>or</li>
                     <li class="nav-item">
-                        <a class="nav-link " href="signup.php">sign Up</a>
+                        <a class="nav-link " href="create-account.php">sign Up</a>
                     </li>
 
                 </ul>
