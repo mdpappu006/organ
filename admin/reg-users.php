@@ -82,6 +82,7 @@
 											<th>#</th>
 											<th> Name</th>
 											<th>Email </th>
+											<th>Clinic Or Hospital </th>
 											<th>Contact no</th>
 											<th>Address</th>
 											<th>Donate</th>
@@ -96,6 +97,7 @@
 											<th>#</th>
 											<th> Name</th>
 											<th>Email </th>
+											<th>Clinic Or Hospital </th>
 											<th>Contact no</th>
 											<th>Address</th>
 											<th>Donate</th>
@@ -126,6 +128,16 @@ if(isset($_REQUEST['eid'])){
 											<td> <?php echo $data['id']?></td>
 											<td><?php echo $data['firstname']." ".$data['lastname'] ?></td>
 											<td><?php echo $data['email']?></td>
+											<td> 
+												<?php 
+													if($data['org_name'] == "hospital"){
+														echo $data['org_name'];
+													}else{
+														echo $data['org_name'];
+													}
+
+												?>	
+											</td>
 											<td><?php echo $data['phone']?></td>
 											<td><?php echo $data['address']?></td>
 											<td><?php echo $data['donate_user']?></td>

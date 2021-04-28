@@ -52,9 +52,10 @@
                                     <label class="up-pre">*Trade License</label>
                                 </div>
 
+                                <input type="hidden" value="clinic" name="clinic_name">
 
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn" name="signup">Signup</button>
+                                    <button type="submit" class="btn" name="signupClinic">Signup</button>
                                 </div>
                             </div>
                         </form>

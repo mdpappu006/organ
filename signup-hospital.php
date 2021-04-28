@@ -52,6 +52,7 @@
                                     <label class="up-pre">*Trade License</label>
                                 </div>
 
+                                <input type="hidden" value="hospital" name="hospital_name">
 
                                 <div class="col-md-12">
                                     <button type="submit" class="btn" name="signup">Signup</button>
